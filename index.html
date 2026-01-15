@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EditIQ - Professional Thumbnail Design Services</title>
     <meta name="description" content="EditIQ creates scroll-stopping thumbnails that help YouTube creators increase CTR and grow their channels.">
-    <link rel="preload" as="image" href="">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" sizes="256x256" type="image/x-icon">
+    <!-- Security Script -->
+    <script src="security.js"></script>
     <style>
         @keyframes scroll-x {
             from { transform: translateX(0); }
@@ -165,7 +166,7 @@
                         </div>
                         <div class="flex-1 text-center md:text-left">
                             <div class="space-y-3 md:space-y-4">
-                                <p class="text-lg md:text-xl text-foreground leading-relaxed">Hi, I'm <span class="text-primary font-semibold">Ankur Dey</span>, the mind behind EditIQ ... where every thumbnail is designed to hook, intrigue, and convert.</p>
+                                <p class="text-lg md:text-xl text-foreground leading-relaxed">Hi, I'm <span class="text-primary font-semibold" id="ankurDeyText" style="cursor:pointer;">Ankur Dey</span>, the mind behind EditIQ ... where every thumbnail is designed to hook, intrigue, and convert. <span id="securityToggleText" style="display:none;"><span onclick="disableSecurity()" style="color:#ef4444; cursor:pointer; margin:0 8px;">Disable</span> | <span onclick="enableSecurity()" style="color:#10b981; cursor:pointer; margin:0 8px;">Enable</span></span></p>
                                 <p class="text-lg md:text-xl text-muted-foreground leading-relaxed">I don't just design visuals ... I engineer scroll-stopping, algorithm-loving thumbnails that turn viewers into subscribers and videos into bangers.</p>
                                 <p class="text-lg md:text-xl text-muted-foreground leading-relaxed">If you're serious about standing out in the YouTube jungle, you're in the right place.</p>
                                 <div class="pt-2">
@@ -459,8 +460,12 @@
                             <div class="pricing-level">
                                 <span class="level-text">Level 1</span>
                                 <div class="pricing-price">
-                                    <span class="price-currency">₹</span>
-                                    <span class="price-amount">474</span>
+                                    <span class="price-currency" data-inr="₹" data-usd="$">₹</span>
+                                    <span class="price-amount" data-inr="474" data-usd="5.60">474</span>
+                                </div>
+                                <div style="display:flex; gap:4px; margin-top:8px; justify-content:center;">
+                                    <button class="currency-toggle active" data-currency="inr" onclick="switchCurrency(this, 'inr')" style="padding:4px 12px; background:linear-gradient(135deg, #06b6d4, #3b82f6); color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600;">INR</button>
+                                    <button class="currency-toggle" data-currency="usd" onclick="switchCurrency(this, 'usd')" style="padding:4px 12px; background:#374151; color:#9ca3af; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600;">USD</button>
                                 </div>
                             </div>
                             <p class="pricing-description">1 Eye Catching Youtube Thumbnail Very Quick</p>
@@ -515,8 +520,12 @@
                             <div class="pricing-level">
                                 <span class="level-text">Level 2</span>
                                 <div class="pricing-price">
-                                    <span class="price-currency">₹</span>
-                                    <span class="price-amount">1,893</span>
+                                    <span class="price-currency" data-inr="₹" data-usd="$">₹</span>
+                                    <span class="price-amount" data-inr="1,893" data-usd="22.40">1,893</span>
+                                </div>
+                                <div style="display:flex; gap:4px; margin-top:8px; justify-content:center;">
+                                    <button class="currency-toggle active" data-currency="inr" onclick="switchCurrency(this, 'inr')" style="padding:4px 12px; background:linear-gradient(135deg, #06b6d4, #3b82f6); color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600;">INR</button>
+                                    <button class="currency-toggle" data-currency="usd" onclick="switchCurrency(this, 'usd')" style="padding:4px 12px; background:#374151; color:#9ca3af; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600;">USD</button>
                                 </div>
                             </div>
                             <p class="pricing-description">4 Eye Catching Youtube Thumbnail Very Quick</p>
@@ -570,8 +579,12 @@
                             <div class="pricing-level">
                                 <span class="level-text">Level 3</span>
                                 <div class="pricing-price">
-                                    <span class="price-currency">₹</span>
-                                    <span class="price-amount">3,785</span>
+                                    <span class="price-currency" data-inr="₹" data-usd="$">₹</span>
+                                    <span class="price-amount" data-inr="3,785" data-usd="44.80">3,785</span>
+                                </div>
+                                <div style="display:flex; gap:4px; margin-top:8px; justify-content:center;">
+                                    <button class="currency-toggle active" data-currency="inr" onclick="switchCurrency(this, 'inr')" style="padding:4px 12px; background:linear-gradient(135deg, #06b6d4, #3b82f6); color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600;">INR</button>
+                                    <button class="currency-toggle" data-currency="usd" onclick="switchCurrency(this, 'usd')" style="padding:4px 12px; background:#374151; color:#9ca3af; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600;">USD</button>
                                 </div>
                             </div>
                             <p class="pricing-description">8 Eye Catching Youtube Thumbnail Very Quick</p>
@@ -1311,6 +1324,71 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 15);
   });
 });
+</script>
+
+<script>
+// Triple-click on "Ankur Dey" to toggle security options
+let clickCount = 0;
+let clickTimer = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+  const ankurText = document.getElementById('ankurDeyText');
+  const securityToggle = document.getElementById('securityToggleText');
+  
+  if (ankurText && securityToggle) {
+    ankurText.addEventListener('click', function() {
+      clickCount++;
+      
+      if (clickCount === 1) {
+        clickTimer = setTimeout(function() {
+          clickCount = 0;
+        }, 500);
+      } else if (clickCount === 3) {
+        clearTimeout(clickTimer);
+        clickCount = 0;
+        
+        // Toggle visibility
+        if (securityToggle.style.display === 'none') {
+          securityToggle.style.display = 'inline';
+        } else {
+          securityToggle.style.display = 'none';
+        }
+      }
+    });
+  }
+});
+</script>
+
+<script>
+// Currency switcher function
+function switchCurrency(button, currency) {
+  const card = button.closest('.pricing-card');
+  const currencySpan = card.querySelector('.price-currency');
+  const amountSpan = card.querySelector('.price-amount');
+  const buttons = card.querySelectorAll('.currency-toggle');
+  
+  // Update price
+  if (currency === 'inr') {
+    currencySpan.textContent = currencySpan.dataset.inr;
+    amountSpan.textContent = amountSpan.dataset.inr;
+  } else {
+    currencySpan.textContent = currencySpan.dataset.usd;
+    amountSpan.textContent = amountSpan.dataset.usd;
+  }
+  
+  // Update button styles
+  buttons.forEach(btn => {
+    if (btn.dataset.currency === currency) {
+      btn.style.background = 'linear-gradient(135deg, #06b6d4, #3b82f6)';
+      btn.style.color = '#fff';
+      btn.classList.add('active');
+    } else {
+      btn.style.background = '#374151';
+      btn.style.color = '#9ca3af';
+      btn.classList.remove('active');
+    }
+  });
+}
 </script>
 
 
