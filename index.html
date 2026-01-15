@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EditIQ - Professional Thumbnail Design Services</title>
+    <meta name="description" content="EditIQ creates scroll-stopping thumbnails that help YouTube creators increase CTR and grow their channels.">
+    <link rel="preload" as="image" href="">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" sizes="256x256" type="image/x-icon">
+    <style>
+        @keyframes scroll-x {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        .animate-scroll-slow {
+            animation: scroll-x 60s linear infinite;
+        }
+        .animate-scroll-medium-reverse {
+            animation: scroll-x 40s linear infinite reverse;
+        }
+        .animate-scroll-fast {
+            animation: scroll-x 30s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="identity-loader">
+
+    <!-- Avatar / Logo -->
+    <div class="loader-avatar">
+      <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1761247018/logoinvoice_1_klnd51.png" alt="Ankur">
+    </div>
+
+    <!-- Name -->
+    <h2 class="loader-name">Ankur</h2>
+    <p class="loader-role">Thumbnail Designer</p>
+
+    <!-- Percentage -->
+    <div class="loader-percent">
+      <span id="load-percent">0</span>%
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="loader-progress">
+      <div class="loader-progress-fill" id="loader-progress-fill"></div>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- Bottom Progress Bar -->
+  <div class="loader-bar">
+    <div class="loader-bar-fill" id="loader-bar-fill"></div>
+  </div>
+</div>
+
+
+
+    <div class="min-h-screen bg-background text-foreground">
+        <header class="fixed top-4 left-4 right-4 z-50 font-inter">
+            <div class="mx-auto max-w-6xl rounded-2xl bg-black/40 backdrop-blur-md border border-primary/30 transition-all duration-300">
+                <div class="px-6 py-4">
+                    <div class="flex items-center justify-between">
+                        <a href="#home" class="text-2xl font-bold">
+                            <span class="text-primary" >Edit</span><span class="text-foreground">IQ</span><span class="text-foreground" style="color: yellow; ">.</span>
+                            
+                            
+                        </a>
+                        <nav class="hidden md:flex items-center space-x-8">
+                            <a href="#home" class="text-base font-normal text-foreground hover:text-primary transition-colors">Home</a>
+                            <a href="#process" class="text-base font-normal text-foreground hover:text-primary transition-colors">Process</a>
+                            <a href="#portfolio" class="text-base font-normal text-foreground hover:text-primary transition-colors">Portfolio</a>
+                            <a href="#services" class="text-base font-normal text-foreground hover:text-primary transition-colors">Services</a>
+                            <a href="#testimonials" class="text-base font-normal text-foreground hover:text-primary transition-colors">Testimonials</a>
+                            <a href="#contact" class="text-base font-normal text-foreground hover:text-primary transition-colors">Contact</a>
+                        </nav>
+                        <a href="#contact" class="hidden md:inline-flex animated-arrow-btn animated-arrow-btn-primary animated-arrow-btn-sm">
+                            <span class="btn-arrow-wrapper">
+                                <svg class="btn-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Get Started</span>
+                            <svg class="btn-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="w-full">
+            <section id="home" class="min-h-screen flex items-center justify-center bg-background font-inter relative overflow-hidden pt-20 md:pt-0">
+                <div class="container mx-auto px-4 text-center relative z-10 mt-4 md:mt-0">
+                    <div class="max-w-4xl mx-auto">
+                        <h1 class="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight text-foreground fade-up">Make Every Scroll Stop With <span class="text-primary">Stunning</span> Thumbnails</h1>
+                        <p class="text-lg md:text-xl lg:text-2xl text-[#c4c4c4] mb-3 md:mb-4 px-2 fade-up">We generated <span class="text-primary font-bold">15M+ clicks</span> for our clients</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                            <a href="#contact" class="animated-arrow-btn animated-arrow-btn-primary">
+                                <span class="btn-arrow-wrapper">
+                                    <svg class="btn-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                                <span class="btn-text">Get Started</span>
+                                <svg class="btn-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#portfolio" class="animated-arrow-btn animated-arrow-btn-outline">
+                                <span class="btn-arrow-wrapper"></span>
+                                Portfolio
+                            </a>
+                        </div>
+                        <div class="mt-16">
+                            <p class="text-[#c4c4c4] mb-6 text-lg fade-up">Trusted by YouTube's Biggest Creators:</p>
+                            <div class="flex justify-center flex-wrap gap-6 max-w-3xl mx-auto">
+                                <a href="https://www.youtube.com/@Whatifwithabhishek" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center group">
+                                    <div class="w-16 h-16 rounded-full bg-white border-2 border-primary flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+                                        <img src="images/client1.png" alt="YouFactTech" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="mt-2 text-sm text-primary font-semibold">11M</span>
+                                </a>
+                                <a href="https://www.youtube.com/@TechnoGamerzOfficial" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center group">
+                                    <div class="w-16 h-16 rounded-full bg-white border-2 border-primary flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+                                        <img src="images/client2.png" alt="FarmCraft101" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="mt-2 text-sm text-primary font-semibold">49M</span>
+                                </a>
+                                <a href="https://www.youtube.com/@HappyPrinceGaming" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center group">
+                                    <div class="w-16 h-16 rounded-full bg-white border-2 border-primary flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+                                        <img src="images/client3.png" alt="Felix Friends" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="mt-2 text-sm text-primary font-semibold">7M</span>
+                                </a>
+                                <a href="https://www.youtube.com/@SokherGamer" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center group">
+                                    <div class="w-16 h-16 rounded-full bg-white border-2 border-primary flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+                                        <img src="images/client4.png" alt="Sanchit GameDev" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="mt-2 text-sm text-primary font-semibold">2.2M</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
+                </div>
+            </section>
+            <section class="py-12 md:py-20 bg-background">
+                <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+                    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12 p-4 md:p-8 border border-primary/20 rounded-2xl bg-card fade-up">
+                        <div class="flex-shrink-0">
+                            <div class="w-32 h-32 md:w-48 md:h-48 rounded-full border-2 border-primary p-1">
+                                <img alt="Ankur Dey" loading="lazy" width="192" height="192" decoding="async" class="w-full h-full rounded-full object-cover" style="color:transparent" srcset="images/image.webp 1x, images/image.webp 2x" src="images/image.webp">
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="space-y-3 md:space-y-4">
+                                <p class="text-lg md:text-xl text-foreground leading-relaxed">Hi, I'm <span class="text-primary font-semibold">Ankur Dey</span>, the mind behind EditIQ ... where every thumbnail is designed to hook, intrigue, and convert.</p>
+                                <p class="text-lg md:text-xl text-muted-foreground leading-relaxed">I don't just design visuals ... I engineer scroll-stopping, algorithm-loving thumbnails that turn viewers into subscribers and videos into bangers.</p>
+                                <p class="text-lg md:text-xl text-muted-foreground leading-relaxed">If you're serious about standing out in the YouTube jungle, you're in the right place.</p>
+                                <div class="pt-2">
+                                    <p class="text-xl md:text-2xl font-bold text-foreground" >👉 Let's turn your next upload into your biggest hit yet. <a href="Invoice.html" style="opacity: 0%;" target="_blank">invoice</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="process" class="py-12 md:py-24 bg-background">
+                <div class="container mx-auto px-4 " >
+                    <div class="text-center mb-8 md:mb-16 fade-up">
+                        <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 md:mb-6">
+                            <span class="w-2 h-2 bg-primary rounded-full"></span>OUR WORKFLOW
+                        </div>
+                        <h2 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 font-inter leading-tight px-2 fade-up">The process of creating a <span class="text-primary">clickable</span> thumbnail</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                        <div class="relative">
+                            <div class="bg-card border border-primary/20 rounded-lg p-6 h-full fade-up">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">01</div>
+                                    <div class="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">Step 1</div>
+                                </div>
+                                <div class="bg-secondary/30 border border-border rounded-lg p-4 mb-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle w-4 h-4 text-primary-foreground" aria-hidden="true">
+                                                <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-foreground">Client</div>
+                                            <div class="text-xs text-muted-foreground">2m ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="rounded-lg aspect-[16/9] overflow-hidden">
+                                        <img alt="Client Discussion" loading="lazy" width="378" height="213" decoding="async" class="w-full h-full object-cover" style="color:transparent" srcset="images/step1.jpg 1x, images/step1.jpg 2x" src="images/step1.jpg">
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-foreground mb-3">Contact us</h3>
+                                <p class="text-muted-foreground leading-relaxed">Fill out the <span class="text-primary">contact form</span> to kick things off. Once we hear from you, I'll <span class="text-primary">personally connect</span> and go over how we can work together.</p>
+                            </div>
+                            <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-border"></div>
+                        </div>
+                        <div class="relative">
+                            <div class="bg-card border border-primary/20 rounded-lg p-6 h-full fade-up">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">02</div>
+                                    <div class="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">Step 2</div>
+                                </div>
+                                <div class="bg-secondary/30 border border-border rounded-lg p-4 mb-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb w-4 h-4 text-primary-foreground" aria-hidden="true">
+                                                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+                                                <path d="M9 18h6"></path>
+                                                <path d="M10 22h4"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-foreground">EditIQ</div>
+                                            <div class="text-xs text-muted-foreground">1h ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="rounded-lg aspect-[16/9] overflow-hidden">
+                                        <img alt="Thumbnail Sketch" loading="lazy" width="378" height="213" decoding="async" class="w-full h-full object-cover" style="color:transparent" srcset="images/step2.png 1x, images/step2.png 2x" src="images/step2.png">
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-foreground mb-3">Crafting the vision</h3>
+                                <p class="text-muted-foreground leading-relaxed">I don't just guess what works — I study your audience, your niche, and what makes people actually <span class="text-primary">click</span>. That's how I build concepts that make sense and get attention.</p>
+                            </div>
+                            <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-border"></div>
+                        </div>
+                        <div class="relative">
+                            <div class="bg-card border border-primary/20 rounded-lg p-6 h-full fade-up">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">03</div>
+                                    <div class="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">Step 3</div>
+                                </div>
+                                <div class="bg-secondary/30 border border-border rounded-lg p-4 mb-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big w-4 h-4 text-primary-foreground" aria-hidden="true">
+                                                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                                <path d="m9 11 3 3L22 4"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-foreground">Final Thumbnail</div>
+                                            <div class="text-xs text-muted-foreground">30m ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="rounded-lg aspect-[16/9] overflow-hidden">
+                                        <img alt="Final Thumbnail" loading="lazy" width="378" height="213" decoding="async" class="w-full h-full object-cover" style="color:transparent" srcset="images/step3.png 1x, images/step3.png 2x" src="images/step3.png">
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-foreground mb-3">Final version</h3>
+                                <p class="text-muted-foreground leading-relaxed">We bring the concept to life with a sharp, <span class="text-primary">high-impact thumbnail</span>. You can suggest changes too — we'll refine it till it's perfect.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-8 md:mt-16">
+                        <a href="#contact" class="animated-arrow-btn animated-arrow-btn-primary">
+                            <span class="btn-arrow-wrapper">
+                                <svg class="btn-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Get Started</span>
+                            <svg class="btn-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+  <section id="portfolio" class="portfolio-section">
+
+  <h2 class="portfolio-title">
+    Featured <span>Work</span>
+  </h2>
+
+  <p class="portfolio-subtitle">
+    Check out some of my best thumbnail designs that helped creators stand out.
+  </p>
+
+  <!-- Filter Pills -->
+  <div class="portfolio-filters">
+  <button class="filter-pill active" data-filter="all">All</button>
+  <button class="filter-pill" data-filter="irl">IRL</button>
+  <button class="filter-pill" data-filter="tech">Tech</button>
+  <button class="filter-pill" data-filter="entertainment">Entertainment</button>
+  <button class="filter-pill" data-filter="business">Business</button>
+  <button class="filter-pill" data-filter="lifestyle">Lifestyle</button>
+</div>
+
+
+  <!-- Cards  -->
+<div class="portfolio-grid">
+
+  <div class="portfolio-card" data-category="business">
+    <div class="thumb">
+      <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991819/step_3_vbflw4.png" alt="Preview">
+      <div class="thumb-overlay"></div>
+      <button class="eye-btn" type="button" data-img="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991819/step_3_vbflw4.png" aria-label="Preview image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M1.5 12C3.5 7.5 7.5 4.5 12 4.5C16.5 4.5 20.5 7.5 22.5 12C20.5 16.5 16.5 19.5 12 19.5C7.5 19.5 3.5 16.5 1.5 12Z" stroke="white" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="card-content">
+      <div class="category">Business</div>
+      <div class="title">Only Fans</div>
+      <div class="ctr">12.8% CTR</div>
+    </div>
+  </div>
+
+  <div class="portfolio-card" data-category="tech">
+    <div class="thumb">
+      <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/tech_ph1_vjcgan.jpg" alt="Preview">
+      <div class="thumb-overlay"></div>
+      <button class="eye-btn" type="button" data-img="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/tech_ph1_vjcgan.jpg" aria-label="Preview image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M1.5 12C3.5 7.5 7.5 4.5 12 4.5C16.5 4.5 20.5 7.5 22.5 12C20.5 16.5 16.5 19.5 12 19.5C7.5 19.5 3.5 16.5 1.5 12Z" stroke="white" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="card-content">
+      <div class="category">TECH</div>
+      <div class="title">Under ₹25K Phone</div>
+      <div class="ctr">15.2% CTR</div>
+    </div>
+  </div>
+
+  <div class="portfolio-card" data-category="business">
+    <div class="thumb">
+      <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/thumbnail_2_pihncp.jpg" alt="Preview">
+      <div class="thumb-overlay"></div>
+      <button class="eye-btn" type="button" data-img="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/thumbnail_2_pihncp.jpg" aria-label="Preview image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M1.5 12C3.5 7.5 7.5 4.5 12 4.5C16.5 4.5 20.5 7.5 22.5 12C20.5 16.5 16.5 19.5 12 19.5C7.5 19.5 3.5 16.5 1.5 12Z" stroke="white" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="card-content">
+      <div class="category">BUSINESS</div>
+      <div class="title">LinkedIn Growth Strategy</div>
+      <div class="ctr">11.5% CTR</div>
+    </div>
+  </div>
+
+  <div class="portfolio-card" data-category="tech">
+    <div class="thumb">
+      <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991748/hrittik_thumb_kgqai8.jpg" alt="Preview">
+      <div class="thumb-overlay"></div>
+      <button class="eye-btn" type="button" data-img="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991748/hrittik_thumb_kgqai8.jpg" aria-label="Preview image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M1.5 12C3.5 7.5 7.5 4.5 12 4.5C16.5 4.5 20.5 7.5 22.5 12C20.5 16.5 16.5 19.5 12 19.5C7.5 19.5 3.5 16.5 1.5 12Z" stroke="white" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="card-content">
+      <div class="category">TECH</div>
+      <div class="title">iPhone VS Camera</div>
+      <div class="ctr">12.8% CTR</div>
+    </div>
+  </div>
+
+  <div class="portfolio-card" data-category="tech">
+    <div class="thumb">
+      <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/pc_build_ymmoee.jpg" alt="Preview">
+      <div class="thumb-overlay"></div>
+      <button class="eye-btn" type="button" data-img="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/pc_build_ymmoee.jpg" aria-label="Preview image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M1.5 12C3.5 7.5 7.5 4.5 12 4.5C16.5 4.5 20.5 7.5 22.5 12C20.5 16.5 16.5 19.5 12 19.5C7.5 19.5 3.5 16.5 1.5 12Z" stroke="white" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="card-content">
+      <div class="category">TECH</div>
+      <div class="title">₹15K Gaming PC</div>
+      <div class="ctr">15.2% CTR</div>
+    </div>
+  </div>
+
+  <div class="portfolio-card" data-category="tech">
+    <div class="thumb">
+      <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/tech_oliybg.jpg" alt="Preview">
+      <div class="thumb-overlay"></div>
+      <button class="eye-btn" type="button" data-img="https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/tech_oliybg.jpg" aria-label="Preview image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M1.5 12C3.5 7.5 7.5 4.5 12 4.5C16.5 4.5 20.5 7.5 22.5 12C20.5 16.5 16.5 19.5 12 19.5C7.5 19.5 3.5 16.5 1.5 12Z" stroke="white" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="card-content">
+      <div class="category">TECH</div>
+      <div class="title">Apple Fake in Japan</div>
+      <div class="ctr">11.5% CTR</div>
+    </div>
+  </div>
+
+</div>
+
+
+  
+
+
+</section>
+
+
+
+
+
+
+
+            <section id="services" class="py-12 md:py-24 bg-background">
+                <div class="container mx-auto px-4 max-w-7xl">
+                    <div class="text-center mb-12 md:mb-16">
+                        <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 leading-tight font-inter">Choose the Perfect <span class="text-primary">Plan</span> for Your Channel</h2>
+                        <p class="text-lg text-muted-foreground">Transparent pricing. No hidden fees. Unlimited revisions.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                        
+                        <!-- Basic Plan -->
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h3 class="pricing-title">Basic</h3>
+                                <p class="pricing-subtitle">Perfect for testing the waters.</p>
+                            </div>
+                            <div class="pricing-level">
+                                <span class="level-text">Level 1</span>
+                                <div class="pricing-price">
+                                    <span class="price-currency">₹</span>
+                                    <span class="price-amount">474</span>
+                                </div>
+                            </div>
+                            <p class="pricing-description">1 Eye Catching Youtube Thumbnail Very Quick</p>
+                            <div class="pricing-meta">
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>1-day delivery</span>
+                                </div>
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Unlimited Revisions</span>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <ul class="features-list">
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>1 thumbnail</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Image sourcing</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Custom designed images</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="pricing-button">
+                                <a href="#contact">Continue →</a>
+                            </button>
+                        </div>
+
+                        <!-- Standard Plan (Popular) -->
+                        <div class="pricing-card pricing-card-popular">
+                            <div class="popular-badge">Popular</div>
+                            <div class="pricing-header">
+                                <h3 class="pricing-title">Standard</h3>
+                                <p class="pricing-subtitle">Best value for growing channels.</p>
+                            </div>
+                            <div class="pricing-level">
+                                <span class="level-text">Level 2</span>
+                                <div class="pricing-price">
+                                    <span class="price-currency">₹</span>
+                                    <span class="price-amount">1,893</span>
+                                </div>
+                            </div>
+                            <p class="pricing-description">4 Eye Catching Youtube Thumbnail Very Quick</p>
+                            <div class="pricing-meta">
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>2-day delivery</span>
+                                </div>
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Unlimited Revisions</span>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <ul class="features-list">
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>4 thumbnails</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Image sourcing</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Custom designed images</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="pricing-button">
+                                <a href="#contact">Continue →</a>
+                            </button>
+                        </div>
+
+                        <!-- Premium Plan -->
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h3 class="pricing-title">Premium</h3>
+                                <p class="pricing-subtitle">For serious content creators.</p>
+                            </div>
+                            <div class="pricing-level">
+                                <span class="level-text">Level 3</span>
+                                <div class="pricing-price">
+                                    <span class="price-currency">₹</span>
+                                    <span class="price-amount">3,785</span>
+                                </div>
+                            </div>
+                            <p class="pricing-description">8 Eye Catching Youtube Thumbnail Very Quick</p>
+                            <div class="pricing-meta">
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>3-day delivery</span>
+                                </div>
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Unlimited Revisions</span>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <ul class="features-list">
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>8 thumbnails</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Image sourcing</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Custom designed images</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="pricing-button">
+                                <a href="#contact">Continue →</a>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section id="testimonials" class="py-24 bg-background overflow-hidden">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                            <span class="w-2 h-2 bg-primary rounded-full"></span>Testimonials
+                        </div><a href="https://edit-iq.github.io/editiq-workshop/" style="opacity: 0%;" target="_blank">workflow</a></p>
+                        <h2 class="text-3xl md:text-5xl font-extrabold mb-4 font-inter leading-tight">Hear It From The <span class="text-primary">Clients.</span></h2>
+                        <p class="text-lg text-muted-foreground">Nothing but praise.</p>
+                    </div>
+                    
+                    <!-- 3D Carousel Container -->
+                    <div class="carousel-3d-wrapper">
+                        <div class="carousel-3d" id="testimonial-carousel">
+                            
+                            <!-- Testimonial Card 1 -->
+                            <div class="carousel-3d-item">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">
+                                            <img src="images/image.png" alt="FarmCraft101">
+                                        </div>
+                                        <div class="testimonial-info">
+                                            <h3 class="testimonial-name">FarmCraft101</h3>
+                                            <div class="testimonial-badge">544k+ Subscribers</div>
+                                        </div>
+                                    </div>
+                                    <blockquote class="testimonial-quote">
+                                        "I've worked with a few designers before, but he really stands out. Clean, professional, and he understood exactly what my channel needed without endless revisions."
+                                    </blockquote>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial Card 2 -->
+                            <div class="carousel-3d-item">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar testimonial-avatar-initials">
+                                            <span>NB</span>
+                                        </div>
+                                        <div class="testimonial-info">
+                                            <h3 class="testimonial-name">Nilesh Biswal</h3>
+                                            <div class="testimonial-badge">240k+ Subscribers</div>
+                                        </div>
+                                    </div>
+                                    <blockquote class="testimonial-quote">
+                                        "Working with him is honestly addictive, not just because the thumbnails are top-notch but because of how Ankur communicates. The way he talks, listens, and delivers... it's like glue for clients. You just want to keep coming back."
+                                    </blockquote>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial Card 3 -->
+                            <div class="carousel-3d-item">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar testimonial-avatar-initials">
+                                            <span>GN</span>
+                                        </div>
+                                        <div class="testimonial-info">
+                                            <h3 class="testimonial-name">Gladson Nixon</h3>
+                                            <div class="testimonial-badge">150k+ Subscribers</div>
+                                        </div>
+                                    </div>
+                                    <blockquote class="testimonial-quote">
+                                        "The work is so professional, and the delivery time is also very fast, and its very easy to communicate and the price is definitely worth it."
+                                    </blockquote>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="carousel-3d-controls">
+                        <button class="carousel-3d-btn carousel-3d-prev" id="carousel-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </button>
+                        <button class="carousel-3d-btn carousel-3d-next" id="carousel-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="py-12 md:py-24 bg-background">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 font-inter leading-tight">Get in <span class="text-primary">Touch</span></h2>
+                        <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Ready to take your content to the next level? Fill out the form below and we'll get back to you within 24 hours.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
+                        <div class="lg:col-span-2">
+
+
+
+
+
+
+                            <form id="contact-form" class="space-y-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="name" class="block text-sm font-semibold mb-2 text-foreground">Name</label>
+      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" id="name" placeholder="Your name" name="name" required>
+    </div>
+    <div>
+      <label for="contact-platform" class="block text-sm font-semibold mb-2 text-foreground">Contact Platform</label>
+      <select id="contact-platform" name="contact-platform"
+        class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" required>
+        <option value="" disabled selected>Select Platform</option>
+        <option value="discord">Discord</option>
+        <option value="email">Email</option>
+        <option value="instagram">Instagram</option>
+        <option value="telegram">Telegram</option>
+        <option value="whatsapp">WhatsApp</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="contactInfo" class="text-sm font-semibold mb-2 text-foreground">Contact Info</label>
+      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" id="contactInfo" placeholder="Your WhatsApp" name="contactInfo" required>
+    </div>
+    <div>
+      <label for="subject" class="block text-sm font-semibold mb-2 text-foreground">Subject</label>
+      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" id="subject" placeholder="How can we help?" name="subject" required>
+    </div>
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-semibold mb-2 text-foreground">Message</label>
+    <textarea class="placeholder:text-muted-foreground focus-visible:border-ring aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-primary/30 focus-visible:ring-primary" id="message" name="message" placeholder="Tell us more about your project..." rows="5" required></textarea>
+  </div>
+
+  <div class="flex justify-center pt-4">
+    <button type="submit" id="submit-btn" class="interactive-submit-btn">
+      <div class="btn-content">
+        <span class="btn-text">
+          Send Message
+          <span class="btn-icon">
+            <svg class="plane-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </span>
+        </span>
+        <span class="btn-loader"></span>
+        <span class="btn-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </span>
+      </div>
+    </button>
+  </div>
+  <p id="form-status" class="text-center text-sm pt-2"></p>
+</form>
+
+
+
+                        </div>
+                        <div class="lg:mt-10">
+                            <div class="bg-card border border-primary/20 rounded-lg p-6 space-y-6">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-3 text-foreground">Contact Information</h3>
+                                    <a href="mailto:contact.editiq@gmail.com" class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-5 w-5 text-primary" aria-hidden="true">
+                                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                        </svg>
+                                        <span><span class="__cf_email__" >contact.editiq@gmail.com</span></span>
+                                    </a>
+
+                                    <a href="https://wa.me/919434887705?text=Can%20u%20make%20a%20thumbnail%20for%20me%3F" class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" target="_blank">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" style="filter: invert(53%) sepia(89%) saturate(2235%) hue-rotate(165deg) brightness(101%) contrast(101%);
+" 
+        alt="WhatsApp"
+        class="h-5 w-5 text-primary filter invert-[40%] sepia-[90%] saturate-[800%] hue-rotate-[85deg] brightness-95 contrast-100"
+        aria-hidden="true">
+                                        <span><span class="__cf_email__" >+91 9434 8877 05</span></span>
+                                    </a>
+
+
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-4 text-foreground">Follow Us</h4>
+                                    <div class="flex gap-4">
+                                        <a href="" rel="noopener noreferrer" aria-label="Instagram" class="flex items-center justify-center w-10 h-10 bg-primary rounded-full text-primary-foreground hover:scale-110 transition-transform">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram h-5 w-5" aria-hidden="true">
+                                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                            </svg>
+                                        </a>
+                                        <a href="" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="flex items-center justify-center w-10 h-10 bg-primary rounded-full text-primary-foreground hover:scale-110 transition-transform">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin h-5 w-5" aria-hidden="true">
+                                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                                <rect width="4" height="12" x="2" y="9"></rect>
+                                                <circle cx="4" cy="4" r="2"></circle>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="relative bg-background pt-20 pb-8 border-t border-primary/20">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold font-inter"><span class="text-primary" >Edit</span><span class="text-foreground">IQ</span><span class="text-foreground" style="color: yellow; ">.</span></h2>
+                        <p class="text-muted-foreground text-sm max-w-[300px]">Creating thumbnails that make viewers stop scrolling and start clicking.</p>
+                        <div class="flex space-x-3 pt-2">
+                            <a href="insta" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-primary-foreground transition-transform hover:scale-110">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram w-5 h-5" aria-hidden="true">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <a href="wp" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-primary-foreground transition-transform hover:scale-110">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin w-5 h-5" aria-hidden="true">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect width="4" height="12" x="2" y="9"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-foreground mb-4">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#home" class="text-muted-foreground hover:text-primary transition-colors">Home</a></li>
+                            <li><a href="#services" class="text-muted-foreground hover:text-primary transition-colors">Services</a></li>
+                            <li><a href="#portfolio" class="text-muted-foreground hover:text-primary transition-colors">Portfolio</a></li>
+                            <li><a href="#testimonials" class="text-muted-foreground hover:text-primary transition-colors">Testimonials</a></li>
+                            <li><a href="#contact" class="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-foreground mb-4">Services</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#services" class="text-muted-foreground hover:text-primary transition-colors">Thumbnail Design</a></li>
+                            <li><a href="#services" class="text-muted-foreground hover:text-primary transition-colors">Channel Branding</a></li>
+                            <li><a href="#services" class="text-muted-foreground hover:text-primary transition-colors">Content Strategy</a></li>
+                            <li><a href="#services" class="text-muted-foreground hover:text-primary transition-colors">GFX Design</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-foreground mb-4">Contact</h3>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
+                            <a href="mailto:contact.editiq@gmail.com" class="text-muted-foreground hover:text-primary transition-colors break-all" target="_blank">
+                                <span class="__cf_email__" >contact.editiq@gmail.com</span>
+                            </a>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
+                            <a href="https://wa.me/919434887705?text=Can%20u%20make%20a%20thumbnail%20for%20me%3F" class="text-muted-foreground hover:text-primary transition-colors break-all" target="_blank">
+                                <span class="__cf_email__" >+91 9434 8877 05</span>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="border-t border-primary/20 mt-16 pt-8 text-center">
+                    <p class="text-sm text-muted-foreground">© 2025 EditIQ. All rights reserved.</p>
+                    <p class="text-sm text-muted-foreground mt-2 flex items-center justify-center gap-1.5">Developed with
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-4 h-4 text-primary" aria-hidden="true">
+                            <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path>
+                        </svg> by <a href="#" class="font-semibold text-primary hover:underline">EditIQ</a>
+                    </p>
+                </div>
+            </div>
+            <a href="#contact" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-primary text-primary-foreground text-lg font-bold px-6 py-3 rounded-lg shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-primary/90 hover:scale-105 hover:shadow-xl hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background z-50">Get Started</a>
+        </footer>
+    </div>
+
+
+
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".fade-up");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = "running";
+        observer.unobserve(entry.target); // optional: ek baar hi chale
+      }
+    });
+  }, { threshold: 0.1 });
+
+  elements.forEach(el => {
+    el.style.animationPlayState = "paused";
+    observer.observe(el);
+  });
+});
+
+
+
+  
+  const platformSelect = document.getElementById("contact-platform");
+  const contactInput = document.getElementById("contactInfo");
+
+  const placeholders = {
+    whatsapp: "Your WhatsApp number",
+    instagram: "Your Instagram ID",
+    email: "Your Email address",
+    discord: "Your Discord username",
+    telegram: "Your Telegram handle"
+  };
+
+  platformSelect.addEventListener("change", () => {
+    const selected = platformSelect.value;
+    contactInput.placeholder = placeholders[selected] || "Your contact info";
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const platformSelect = document.getElementById("contact-platform");
+  const contactInput = document.getElementById("contactInfo");
+
+  const placeholders = {
+    whatsapp: "Your WhatsApp number",
+    instagram: "Your Instagram ID",
+    email: "Your Email address",
+    discord: "Your Discord username",
+    telegram: "Your Telegram handle",
+  };
+
+  platformSelect.addEventListener("change", function () {
+    const selected = platformSelect.value;
+    contactInput.placeholder = placeholders[selected] || "Your contact info";
+  });
+});
+ 
+
+
+ // <script>
+
+
+
+// ========================================
+// INTERACTIVE CONTACT FORM
+// ========================================
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  const submitBtn = document.getElementById("submit-btn");
+  const status = document.getElementById("form-status");
+
+  if (!form || !submitBtn) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Disable button
+    submitBtn.disabled = true;
+
+    // Get form data
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      platform: formData.get('contact-platform'),
+      contact: formData.get('contactInfo'),
+      subject: formData.get('subject'),
+      message: formData.get('message')
+    };
+
+    // Step 1: Plane flies away (0.5s)
+    submitBtn.classList.add('sending');
+    
+    setTimeout(() => {
+      // Step 2: Show loading spinner (2s)
+      submitBtn.classList.remove('sending');
+      submitBtn.classList.add('loading');
+      
+      setTimeout(() => {
+        // Step 3: Show success checkmark
+        submitBtn.classList.remove('loading');
+        submitBtn.classList.add('success');
+        
+        status.textContent = "✅ Message sent successfully! We'll get back to you soon.";
+        status.style.color = "#22c55e";
+        status.className = "text-center text-sm pt-2";
+
+        // Step 4: Reset after 3 seconds
+        setTimeout(() => {
+          form.reset();
+          submitBtn.classList.remove('success');
+          submitBtn.disabled = false;
+          status.textContent = "";
+        }, 3000);
+        
+      }, 2000);
+    }, 500);
+
+    // Log form data (for testing)
+    console.log('Form submitted:', data);
+
+    /* 
+    // To integrate with your backend API, replace the setTimeout logic above with:
+    
+    try {
+      const response = await fetch('YOUR_API_ENDPOINT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      submitBtn.classList.remove('sending');
+      submitBtn.classList.add('loading');
+      
+      const result = await response.json();
+      
+      submitBtn.classList.remove('loading');
+      
+      if (response.ok) {
+        submitBtn.classList.add('success');
+        status.textContent = "✅ Message sent successfully!";
+        status.style.color = "#22c55e";
+        
+        setTimeout(() => {
+          form.reset();
+          submitBtn.classList.remove('success');
+          submitBtn.disabled = false;
+          status.textContent = "";
+        }, 3000);
+      } else {
+        submitBtn.disabled = false;
+        status.textContent = "❌ Failed to send. Please try again.";
+        status.style.color = "#ef4444";
+      }
+    } catch (error) {
+      submitBtn.classList.remove('sending', 'loading');
+      submitBtn.disabled = false;
+      status.textContent = "❌ Network error. Please try again.";
+      status.style.color = "#ef4444";
+      console.error('Error:', error);
+    }
+    */
+  });
+});
+
+
+</script>
+
+<!-- <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.querySelector(".eye-btn");
+  const modal = document.getElementById("previewModal");
+  const img = document.getElementById("previewImage");
+
+  btn.addEventListener("click", function () {
+    console.log("CLICK WORKED");
+    img.src = btn.dataset.img;
+    modal.classList.add("active");
+  });
+
+  modal.addEventListener("click", function () {
+    modal.classList.remove("active");
+    img.src = "";
+  });
+});
+</script> -->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("previewModal");
+  const img = document.getElementById("previewImage");
+
+  document.body.addEventListener("click", function (e) {
+    const btn = e.target.closest(".eye-btn");
+    if (!btn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const src = btn.dataset.img;
+    if (!src) return;
+
+    img.src = src;
+    modal.classList.add("active");
+  });
+
+  modal.addEventListener("click", function () {
+    modal.classList.remove("active");
+    img.src = "";
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      modal.classList.remove("active");
+      img.src = "";
+    }
+  });
+});
+</script>
+
+<script>
+// ========================================
+// 3D TESTIMONIAL CAROUSEL
+// ========================================
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.getElementById("testimonial-carousel");
+  const items = document.querySelectorAll(".carousel-3d-item");
+  const prevBtn = document.getElementById("carousel-prev");
+  const nextBtn = document.getElementById("carousel-next");
+  
+  if (!carousel || items.length === 0) return;
+  
+  let currentIndex = 0;
+  let isAnimating = false;
+  let autoRotateInterval;
+
+  function updateCarousel() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    items.forEach((item, index) => {
+      item.classList.remove("active", "prev", "next", "hidden");
+      
+      if (index === currentIndex) {
+        item.classList.add("active");
+      } else if (index === (currentIndex - 1 + items.length) % items.length) {
+        item.classList.add("prev");
+      } else if (index === (currentIndex + 1) % items.length) {
+        item.classList.add("next");
+      } else {
+        item.classList.add("hidden");
+      }
+    });
+
+    setTimeout(() => {
+      isAnimating = false;
+    }, 800);
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarousel();
+    resetAutoRotate();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+    resetAutoRotate();
+  }
+
+  function startAutoRotate() {
+    autoRotateInterval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+  }
+
+  function stopAutoRotate() {
+    if (autoRotateInterval) {
+      clearInterval(autoRotateInterval);
+    }
+  }
+
+  function resetAutoRotate() {
+    stopAutoRotate();
+    startAutoRotate();
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", nextSlide);
+  }
+  
+  if (prevBtn) {
+    prevBtn.addEventListener("click", prevSlide);
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      prevSlide();
+    } else if (e.key === "ArrowRight") {
+      nextSlide();
+    }
+  });
+
+  carousel.addEventListener("mouseenter", stopAutoRotate);
+  carousel.addEventListener("mouseleave", startAutoRotate);
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoRotate();
+  });
+
+  carousel.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    startAutoRotate();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+
+  updateCarousel();
+  startAutoRotate();
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const pills = document.querySelectorAll(".filter-pill");
+  const cards = document.querySelectorAll(".portfolio-card");
+
+  pills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      const filter = pill.dataset.filter;
+
+      // active state
+      pills.forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+
+      cards.forEach(card => {
+        const category = card.dataset.category;
+
+        if (filter === "all" || category === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  let percent = 0;
+  const percentText = document.getElementById("load-percent");
+  const barFill = document.getElementById("loader-progress-fill");
+
+  // Smooth preload (up to 85%)
+  const fakeLoad = setInterval(() => {
+    if (percent < 85) {
+      percent++;
+      percentText.textContent = percent;
+      barFill.style.width = percent + "%";
+    }
+  }, 20);
+
+  // Real load
+  window.addEventListener("load", () => {
+    clearInterval(fakeLoad);
+
+    const finish = setInterval(() => {
+      if (percent < 100) {
+        percent++;
+        percentText.textContent = percent;
+        barFill.style.width = percent + "%";
+      } else {
+        clearInterval(finish);
+
+        document.body.style.visibility = "visible";
+
+        const loader = document.getElementById("page-loader");
+        loader.classList.add("hide");
+
+        setTimeout(() => loader.remove(), 800);
+      }
+    }, 15);
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="previewModal" class="preview-modal">
+  <div class="preview-backdrop"></div>
+  <div class="preview-box">
+    <img id="previewImage" src="" alt="Preview">
+  </div>
+</div>
+
+
+
+
+
+
+
+</body>
+
+</html>
