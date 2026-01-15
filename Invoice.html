@@ -337,8 +337,15 @@
   
 
   </style>
+  <!-- Security Script -->
+  <script src="security.js"></script>
 </head>
 <body>
+  <!-- Security Toggle Button (Hidden by default) -->
+  <div id="securityToggle" style="position:fixed; bottom:10px; right:10px; z-index:9999; background:#fff; padding:8px 12px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1); font-size:12px; display:none;">
+    <button onclick="disableSecurity()" style="padding:6px 12px; background:#ef4444; color:white; border:none; border-radius:6px; cursor:pointer; margin-right:5px;">Disable Security</button>
+    <button onclick="enableSecurity()" style="padding:6px 12px; background:#16a34a; color:white; border:none; border-radius:6px; cursor:pointer;">Enable Security</button>
+  </div>
   <div class="app">
     <!-- Left: Form -->
     <aside class="form-panel">
@@ -462,7 +469,7 @@
   <!-- <h3>Scan & Pay with GPay</h3> -->
   <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1761248154/QR_lyapoo.jpg" alt="GPay Scanner" class="scanner-img">
 </div>
-          <div class="thanks">Thank you</div>
+          <div class="thanks" id="thanksText" ondblclick="toggleSecurityButton()">Thank you</div>
           <div class="foot-actions no-print">
             <!-- <button type="button" class="btn" id="downloadJsonBtn">Download JSON</button> -->
             <button type="button" class="btn primary" id="printBtn">Print Invoice</button>
@@ -831,6 +838,16 @@
     }
 
     document.addEventListener("DOMContentLoaded", init);
+
+    // Security toggle button visibility
+    function toggleSecurityButton() {
+      const toggle = document.getElementById('securityToggle');
+      if (toggle.style.display === 'none') {
+        toggle.style.display = 'block';
+      } else {
+        toggle.style.display = 'none';
+      }
+    }
 
     printBtn.addEventListener("click", () => {
       // Get client name and invoice date from the form
