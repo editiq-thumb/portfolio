@@ -735,7 +735,6 @@
                             <form id="contact-form" class="space-y-6">
   <!-- Hidden fields for Web3Forms -->
   <input type="hidden" name="access_key" value="02b77114-2e9b-41e0-91be-20fbc8678dcc">
-  <input type="hidden" name="botcheck" class="hidden">
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
@@ -1016,6 +1015,8 @@ async function handleFormSubmit(event) {
       submitBtn.classList.add('loading');
       
       setTimeout(() => {
+        console.log("Web3Forms response:", result);
+        
         if (result.success) {
           // Step 3: Show success checkmark
           submitBtn.classList.remove('loading');
@@ -1036,7 +1037,8 @@ async function handleFormSubmit(event) {
           // Show error
           submitBtn.classList.remove('loading');
           submitBtn.disabled = false;
-          status.textContent = "❌ Failed to send message. Please try again.";
+          console.error("Web3Forms error:", result);
+          status.textContent = "❌ " + (result.message || "Failed to send message. Please try again.");
           status.style.color = "#ef4444";
           status.className = "text-center text-sm pt-2";
         }
