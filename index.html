@@ -24,6 +24,19 @@
         .animate-scroll-fast {
             animation: scroll-x 30s linear infinite;
         }
+        
+        /* Input shadow when has value */
+        input.has-value:not(:placeholder-shown),
+        textarea.has-value:not(:placeholder-shown) {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+            border-color: rgba(6, 182, 212, 0.5);
+        }
+        
+        /* Select dropdown shadow when option selected (not default) */
+        select.has-value:not([value=""]):valid {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+            border-color: rgba(6, 182, 212, 0.5);
+        }
     </style>
 </head>
 
@@ -52,13 +65,6 @@
       <div class="loader-progress-fill" id="loader-progress-fill"></div>
     </div>
 
-  </div>
-</div>
-
-
-  <!-- Bottom Progress Bar -->
-  <div class="loader-bar">
-    <div class="loader-bar-fill" id="loader-bar-fill"></div>
   </div>
 </div>
 
@@ -734,18 +740,18 @@
 
                             <form id="contact-form" class="space-y-6">
   <!-- Hidden fields for Web3Forms -->
-  <input type="hidden" name="access_key" value="02b77114-2e9b-41e0-91be-20fbc8678dcc">
+  <input type="hidden" name="access_key" value="8e32a939-e658-4cd3-99f9-f376406f4e5b">
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
       <label for="name" class="block text-sm font-semibold mb-2 text-foreground">Name</label>
-      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" id="name" placeholder="Your name" name="name" required>
+      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base transition-all outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-12 bg-card border-primary/30 focus:border-primary/50 focus:shadow-[0_0_20px_rgba(6,182,212,0.3)] has-value" id="name" placeholder="Your name" name="name" required>
     </div>
     <div>
       <label for="contact-platform" class="block text-sm font-semibold mb-2 text-foreground">Contact Platform</label>
       <select id="contact-platform" name="contact-platform"
         onchange="document.getElementById('contactInfo').placeholder = {whatsapp:'Your WhatsApp number',instagram:'Your Instagram ID',email:'Your Email address',discord:'Your Discord ID',telegram:'Your Telegram handle'}[this.value] || 'Your contact info'"
-        class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" required>
+        class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base transition-all outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-12 bg-card border-primary/30 focus:border-primary/50 focus:shadow-[0_0_20px_rgba(6,182,212,0.3)] has-value" required>
         <option value="" disabled selected>Select Platform</option>
         <option value="discord">Discord</option>
         <option value="email">Email</option>
@@ -759,17 +765,17 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
       <label for="contactInfo" class="text-sm font-semibold mb-2 text-foreground">Contact Info</label>
-      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" id="contactInfo" placeholder="Select platform first" name="email" required>
+      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base transition-all outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-12 bg-card border-primary/30 focus:border-primary/50 focus:shadow-[0_0_20px_rgba(6,182,212,0.3)] has-value" id="contactInfo" placeholder="Select platform first" name="email" required>
     </div>
     <div>
       <label for="subject" class="block text-sm font-semibold mb-2 text-foreground">Subject</label>
-      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" id="subject" placeholder="How can we help?" name="subject" required>
+      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base transition-all outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-12 bg-card border-primary/30 focus:border-primary/50 focus:shadow-[0_0_20px_rgba(6,182,212,0.3)] has-value" id="subject" placeholder="How can we help?" name="subject" required>
     </div>
   </div>
 
   <div>
     <label for="message" class="block text-sm font-semibold mb-2 text-foreground">Message</label>
-    <textarea class="placeholder:text-muted-foreground focus-visible:border-ring aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-primary/30 focus-visible:ring-primary" id="message" name="message" placeholder="Tell us more about your project..." rows="5" required></textarea>
+    <textarea class="placeholder:text-muted-foreground dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border px-3 py-2 text-base transition-all outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-primary/30 focus:border-primary/50 focus:shadow-[0_0_20px_rgba(6,182,212,0.3)] has-value" id="message" name="message" placeholder="Tell us more about your project..." rows="5" required></textarea>
   </div>
 
   <div class="flex justify-center pt-4">
@@ -977,7 +983,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ========================================
-// INTERACTIVE CONTACT FORM
+// INTERACTIVE CONTACT FORM SUBMISSION
+// Handles Web3Forms API submission with animations
+// 
+// TO CUSTOMIZE:
+// - Change access_key on line 1007 (your Web3Forms key)
+// - Adjust animation timing (lines 1020, 1033, 1048)
+// - Modify success/error messages (lines 1039, 1044, 1056)
 // ========================================
 async function handleFormSubmit(event) {
   if (event) event.preventDefault();
@@ -994,8 +1006,20 @@ async function handleFormSubmit(event) {
   // Disable button
   submitBtn.disabled = true;
 
-  // Get form data
-  const formData = new FormData(form);
+  // Get form data - include all fields
+  const formData = new FormData();
+  formData.append('access_key', '8e32a939-e658-4cd3-99f9-f376406f4e5b');
+  formData.append('name', form.querySelector('[name="name"]').value);
+  formData.append('email', form.querySelector('[name="email"]').value);
+  formData.append('subject', form.querySelector('[name="subject"]').value);
+  
+  // Add contact platform info to message
+  const platform = form.querySelector('[name="contact-platform"]').value;
+  const contactInfo = form.querySelector('[name="email"]').value;
+  const originalMessage = form.querySelector('[name="message"]').value;
+  
+  const fullMessage = `Contact Platform: ${platform.toUpperCase()}\nContact Info: ${contactInfo}\n\n${originalMessage}`;
+  formData.append('message', fullMessage);
 
   // Step 1: Plane flies away (0.5s)
   submitBtn.classList.add('sending');
@@ -1055,32 +1079,75 @@ async function handleFormSubmit(event) {
   }
 }
 
+// ========================================
+// FORM INPUT GLOW EFFECT
+// Adds cyan glow to inputs when they contain text
+// 
+// TO CUSTOMIZE:
+// - Change glow color in rgba values (lines 1093, 1094, etc.)
+// - Adjust glow intensity by changing opacity values
+// ========================================
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Contact form script loaded");
+  
+  // Add glow effect to all form inputs when they have value
+  const formInputs = document.querySelectorAll('#contact-form input[type="text"], #contact-form textarea');
+  
+  formInputs.forEach(input => {
+    // Check on input event
+    input.addEventListener('input', function() {
+      if (this.value.trim() !== '') {
+        this.style.setProperty('box-shadow', '0 0 20px rgba(6, 182, 212, 0.3)', 'important');
+        this.style.setProperty('border-color', 'rgba(6, 182, 212, 0.5)', 'important');
+      } else {
+        this.style.removeProperty('box-shadow');
+        this.style.removeProperty('border-color');
+      }
+    });
+    
+    // Check on blur (when user leaves the field)
+    input.addEventListener('blur', function() {
+      if (this.value.trim() !== '') {
+        this.style.setProperty('box-shadow', '0 0 20px rgba(6, 182, 212, 0.3)', 'important');
+        this.style.setProperty('border-color', 'rgba(6, 182, 212, 0.5)', 'important');
+      } else {
+        this.style.removeProperty('box-shadow');
+        this.style.removeProperty('border-color');
+      }
+    });
+    
+    // Check on focus
+    input.addEventListener('focus', function() {
+      if (this.value.trim() !== '') {
+        this.style.setProperty('box-shadow', '0 0 20px rgba(6, 182, 212, 0.3)', 'important');
+        this.style.setProperty('border-color', 'rgba(6, 182, 212, 0.5)', 'important');
+      }
+    });
+    
+    // Check initial value on page load
+    if (input.value.trim() !== '') {
+      input.style.setProperty('box-shadow', '0 0 20px rgba(6, 182, 212, 0.3)', 'important');
+      input.style.setProperty('border-color', 'rgba(6, 182, 212, 0.5)', 'important');
+    }
+  });
+  
+  // Add glow effect to select when option is chosen
+  const selectElement = document.getElementById('contact-platform');
+  if (selectElement) {
+    selectElement.addEventListener('change', function() {
+      if (this.value && this.value !== '') {
+        this.style.setProperty('box-shadow', '0 0 20px rgba(6, 182, 212, 0.3)', 'important');
+        this.style.setProperty('border-color', 'rgba(6, 182, 212, 0.5)', 'important');
+      } else {
+        this.style.removeProperty('box-shadow');
+        this.style.removeProperty('border-color');
+      }
+    });
+  }
 });
 
 </script>
-
-<!-- <script>
-
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.querySelector(".eye-btn");
-  const modal = document.getElementById("previewModal");
-  const img = document.getElementById("previewImage");
-
-  btn.addEventListener("click", function () {
-    console.log("CLICK WORKED");
-    img.src = btn.dataset.img;
-    modal.classList.add("active");
-  });
-
-  modal.addEventListener("click", function () {
-    modal.classList.remove("active");
-    img.src = "";
-  });
-});
-</script> -->
-
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1262,6 +1329,21 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <script>
+// ========================================
+// PAGE LOADER ANIMATION
+// Shows loading screen until all resources load
+// 
+// HOW IT WORKS:
+// 1. Fake loads to 85% quickly (animation)
+// 2. Waits for window.load event (all resources loaded)
+// 3. Completes to 100% and hides loader
+// 
+// TO CUSTOMIZE:
+// - Change fake load speed (line 1343, currently 20ms)
+// - Change finish speed (line 1358, currently 15ms)
+// - Adjust fake load limit (line 1341, currently 85%)
+// - Change fade out time (line 1368, currently 800ms)
+// ========================================
 document.addEventListener("DOMContentLoaded", () => {
   let percent = 0;
   const percentText = document.getElementById("load-percent");
@@ -1274,9 +1356,9 @@ document.addEventListener("DOMContentLoaded", () => {
       percentText.textContent = percent;
       barFill.style.width = percent + "%";
     }
-  }, 20);
+  }, 20); // Change this value to adjust fake load speed
 
-  // Real load
+  // Real load - waits for ALL resources (JS, CSS, images)
   window.addEventListener("load", () => {
     clearInterval(fakeLoad);
 
@@ -1293,14 +1375,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const loader = document.getElementById("page-loader");
         loader.classList.add("hide");
 
-        setTimeout(() => loader.remove(), 800);
+        setTimeout(() => loader.remove(), 800); // Fade out duration
       }
-    }, 15);
+    }, 15); // Change this value to adjust completion speed
   });
 });
 </script>
 
 <script>
+// ========================================
+// SECURITY TOGGLE (Triple-click on "Ankur Dey")
+// Allows disabling/enabling security protections
+// 
+// TO CUSTOMIZE:
+// - Change click timeout (line 1391, currently 600ms)
+// - Modify required clicks (line 1393, currently 3)
+// ========================================
 // Triple-click on "Ankur Dey" to toggle security options
 let clickCount = 0;
 let clickTimer = null;

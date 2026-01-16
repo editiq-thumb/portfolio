@@ -6976,7 +6976,18 @@ body {
   /* visibility: hidden; */
 }
 
-/* FULL SCREEN LOADER */
+/* ============================================
+   FULL SCREEN PAGE LOADER
+   
+   Displays loading animation until page fully loads
+   
+   TO CUSTOMIZE:
+   - Background color (line 6984)
+   - Box size (line 6997, padding values)
+   - Border radius (line 6998, currently 24px)
+   - Glow color (line 6999, rgba values)
+   - Float animation speed (line 7000, currently 3s)
+   ============================================ */
 #page-loader {
   position: fixed;
   inset: 0;

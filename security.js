@@ -1,7 +1,28 @@
+/* ============================================
+   SECURITY PROTECTION SCRIPT
+   
+   This script protects your website code from:
+   - Right-click inspection
+   - DevTools (F12, Ctrl+Shift+I, etc.)
+   - Text selection and copying
+   - Screenshots
+   - Console access
+   
+   TO CUSTOMIZE:
+   - Change console messages (lines 88-90)
+   - Adjust console clear interval (line 94, currently 2000ms = 2 seconds)
+   - Modify DevTools detection threshold (line 99, currently 160px)
+   
+   TO DISABLE: Triple-click on "Ankur Dey" text on the website
+   ============================================ */
+
 // Security Protection Script
 let securityEnabled = true;
 
-// Function to disable security
+// ============================================
+// DISABLE SECURITY FUNCTION
+// Called when user triple-clicks "Ankur Dey"
+// ============================================
 function disableSecurity() {
   securityEnabled = false;
   clearInterval(consoleClearInterval);
@@ -12,7 +33,10 @@ function disableSecurity() {
   alert('Security protections have been disabled');
 }
 
-// Function to enable security
+// ============================================
+// ENABLE SECURITY FUNCTION
+// Reloads page to re-enable all protections
+// ============================================
 function enableSecurity() {
   securityEnabled = true;
   console.clear();
@@ -21,7 +45,10 @@ function enableSecurity() {
   location.reload();
 }
 
-// Disable right-click
+// ============================================
+// DISABLE RIGHT-CLICK CONTEXT MENU
+// Prevents inspect element via right-click
+// ============================================
 document.addEventListener('contextmenu', function(e) {
   if (securityEnabled) {
     e.preventDefault();
@@ -29,7 +56,10 @@ document.addEventListener('contextmenu', function(e) {
   }
 });
 
-// Disable keyboard shortcuts
+// ============================================
+// DISABLE KEYBOARD SHORTCUTS
+// Blocks: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S
+// ============================================
 document.addEventListener('keydown', function(e) {
   if (securityEnabled) {
     // F12
@@ -65,16 +95,26 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// Disable text selection and copy
+// ============================================
+// DISABLE TEXT SELECTION AND COPYING
+// Prevents users from selecting/copying content
+// ============================================
 document.addEventListener('selectstart', (e) => securityEnabled && e.preventDefault());
 document.addEventListener('copy', (e) => securityEnabled && e.preventDefault());
 
-// Console warning
+// ============================================
+// CONSOLE WARNING MESSAGES
+// Customize these messages to your preference
+// ============================================
 console.log('%cFUCK YOU 🖕', 'color: red; font-size: 50px; font-weight: bold;');
 console.log('%cidhar se kuch nhi ukhar payega', 'font-size: 20px; color: white;');
 console.log('%cdum hai toh kuch karke dikha', 'font-size: 16px; color: white;');
 
-// Clear console periodically
+// ============================================
+// AUTO-CLEAR CONSOLE
+// Clears console every 2 seconds (2000ms)
+// Change interval time below if needed
+// ============================================
 let consoleClearInterval = setInterval(() => {
   if (securityEnabled) {
     console.clear();
@@ -82,11 +122,15 @@ let consoleClearInterval = setInterval(() => {
     console.log('%cidhar se kuch nhi ukhar payega', 'font-size: 20px; color: white;');
     console.log('%cdum hai toh kuch karke dikha', 'font-size: 16px; color: white;');
   }
-}, 2000);
+}, 2000); // Change 2000 to adjust interval (in milliseconds)
 
-// Detect DevTools
+// ============================================
+// DEVTOOLS DETECTION
+// Detects when DevTools is opened and replaces page
+// Threshold: 160px difference (adjust if needed)
+// ============================================
 (function() {
-  const threshold = 160;
+  const threshold = 160; // Adjust this value if detection is too sensitive
   let isDevToolsOpen = false;
   
   setInterval(() => {
@@ -97,7 +141,8 @@ let consoleClearInterval = setInterval(() => {
       if (widthDiff || heightDiff) {
         if (!isDevToolsOpen) {
           isDevToolsOpen = true;
-          // Completely replace page content
+          // Replace page content with warning message
+          // Customize the message below if needed
           document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#000;color:#ef4444;font-size:48px;font-weight:bold;text-align:center;flex-direction:column;font-family:system-ui;"><div>🖕 FUCK YOU 🖕</div><div style="font-size:24px;margin-top:20px;color:#fff;">F12 se nhi khula isliye......</div><div style="font-size:18px;margin-top:10px;color:#fff;">band kar sale koi fayda nhi hai 🤣</div></div>';
         }
         // Keep replacing content
@@ -112,10 +157,13 @@ let consoleClearInterval = setInterval(() => {
         }
       }
     }
-  }, 500);
+  }, 500); // Check every 500ms (0.5 seconds)
 })();
 
-// Additional protection - hide all network requests
+// ============================================
+// HIDE NETWORK REQUESTS
+// Prevents viewing API calls in Network tab
+// ============================================
 (function() {
   if (securityEnabled) {
     // Override fetch
@@ -134,7 +182,10 @@ let consoleClearInterval = setInterval(() => {
   }
 })();
 
-// Disable screenshots
+// ============================================
+// DISABLE SCREENSHOTS (PrintScreen key)
+// Clears clipboard when screenshot is attempted
+// ============================================
 document.addEventListener('keyup', (e) => {
   if (securityEnabled && e.key === 'PrintScreen') {
     navigator.clipboard.writeText('');
