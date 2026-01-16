@@ -760,7 +760,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
       <label for="contactInfo" class="text-sm font-semibold mb-2 text-foreground">Contact Info</label>
-      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" id="contactInfo" placeholder="Select platform first" name="contactInfo" required>
+      <input type="text" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 rounded-md border px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-12 bg-card border-primary/30 focus-visible:ring-primary" id="contactInfo" placeholder="Select platform first" name="email" required>
     </div>
     <div>
       <label for="subject" class="block text-sm font-semibold mb-2 text-foreground">Subject</label>
@@ -774,7 +774,7 @@
   </div>
 
   <div class="flex justify-center pt-4">
-    <button type="button" id="submit-btn" class="interactive-submit-btn" onclick="alert('Button clicked!'); handleFormSubmit(event);">
+    <button type="button" id="submit-btn" class="interactive-submit-btn" onclick="handleFormSubmit(event);">
       <div class="btn-content">
         <span class="btn-text">
           Send Message
@@ -1056,42 +1056,6 @@ async function handleFormSubmit(event) {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Contact form script loaded");
 });
-      });
-
-      submitBtn.classList.remove('sending');
-      submitBtn.classList.add('loading');
-      
-      const result = await response.json();
-      
-      submitBtn.classList.remove('loading');
-      
-      if (response.ok) {
-        submitBtn.classList.add('success');
-        status.textContent = "✅ Message sent successfully!";
-        status.style.color = "#22c55e";
-        
-        setTimeout(() => {
-          form.reset();
-          submitBtn.classList.remove('success');
-          submitBtn.disabled = false;
-          status.textContent = "";
-        }, 3000);
-      } else {
-        submitBtn.disabled = false;
-        status.textContent = "❌ Failed to send. Please try again.";
-        status.style.color = "#ef4444";
-      }
-    } catch (error) {
-      submitBtn.classList.remove('sending', 'loading');
-      submitBtn.disabled = false;
-      status.textContent = "❌ Network error. Please try again.";
-      status.style.color = "#ef4444";
-      console.error('Error:', error);
-    }
-    */
-  });
-});
-
 
 </script>
 
