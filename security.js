@@ -4,10 +4,11 @@ let securityEnabled = true;
 // Function to disable security
 function disableSecurity() {
   securityEnabled = false;
+  clearInterval(consoleClearInterval);
   document.body.style.filter = 'none';
   document.body.style.userSelect = 'auto';
   console.clear();
-  console.log('Security protections disabled');
+  console.log('✅ Security protections disabled - Console is now working!');
   alert('Security protections have been disabled');
 }
 
@@ -74,7 +75,7 @@ console.log('%cidhar se kuch nhi ukhar payega', 'font-size: 20px; color: white;'
 console.log('%cdum hai toh kuch karke dikha', 'font-size: 16px; color: white;');
 
 // Clear console periodically
-setInterval(() => {
+let consoleClearInterval = setInterval(() => {
   if (securityEnabled) {
     console.clear();
     console.log('%cFUCK YOU 🖕', 'color: red; font-size: 50px; font-weight: bold;');
