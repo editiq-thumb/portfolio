@@ -97,7 +97,7 @@ setInterval(() => {
         if (!isDevToolsOpen) {
           isDevToolsOpen = true;
           // Completely replace page content
-          document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#000;color:#ef4444;font-size:48px;font-weight:bold;text-align:center;flex-direction:column;font-family:system-ui;"><div>🖕 FUCK YOU 🖕</div><div style="font-size:24px;margin-top:20px;color:#fff;">Developer Tools Detected!</div><div style="font-size:18px;margin-top:10px;color:#fff;">Close DevTools to continue</div></div>';
+          document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#000;color:#ef4444;font-size:48px;font-weight:bold;text-align:center;flex-direction:column;font-family:system-ui;"><div>🖕 FUCK YOU 🖕</div><div style="font-size:24px;margin-top:20px;color:#fff;">F12 se nhi khula isliye......</div><div style="font-size:18px;margin-top:10px;color:#fff;">band kar sale koi fayda nhi hai 🤣</div></div>';
         }
         // Keep replacing content
         document.body.style.filter = 'none';
