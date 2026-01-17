@@ -259,11 +259,30 @@
     }
 
     .inv-foot{
-      display:flex; justify-content:space-between; align-items:center;
+      display:flex; 
+      justify-content:space-between; 
+      align-items:flex-end;
       padding:12px 24px 16px 24px; /* Reduced padding */
+      flex-wrap: wrap;
+      gap: 16px;
     }
-    .thanks{ color:var(--good); font-weight:600; }
-    .foot-actions{ display:flex; gap:10px; }
+    .thanks{ 
+      color:var(--good); 
+      font-weight:600; 
+      flex: 1;
+    }
+    .foot-actions{ 
+      display:flex; 
+      gap:10px; 
+      flex-shrink: 0;
+    }
+    
+    .scanner-section {
+      order: -1; /* Move scanner to the left */
+      flex-basis: 100%;
+      text-align: center;
+      margin: 0 0 16px 0;
+    }
 
     /* Responsive: stack form above preview - IMPROVED */
     @media (max-width: 900px){
@@ -301,51 +320,172 @@
 
     /* Print only the invoice card - OPTIMIZED FOR 1 PAGE */
     @media print {
-      body{ background:#fff; margin:0; padding:0; }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      
+      body{ 
+        background: #fff !important; 
+        margin: 0 !important; 
+        padding: 0 !important; 
+        font-size: 11px !important;
+        line-height: 1.2 !important;
+      }
+      
       body * { visibility: hidden !important; }
       .preview-panel, .preview-panel * { visibility: visible !important; }
-      .form-panel{ display:none !important; }
-      .invoice-card{
-        position:absolute;
-        left:0; top:0;
-        width:100% !important;
-        max-width:100% !important;
-        box-shadow:none;
-        border: none;
-        border-radius:0;
-        margin:0;
-        padding:0;
-        height:auto;
-        page-break-inside: avoid;
-        transform: scale(0.85); /* Scale down to fit */
-        transform-origin: top left;
+      .form-panel{ display: none !important; }
+      .no-print{ display: none !important; }
+      
+      .preview-panel {
+        position: absolute !important;
+        left: 0 !important; 
+        top: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
       }
-      .no-print{ display:none !important; }
       
-      /* Compact spacing for print */
-      .inv-head{ padding:12px 16px; }
-      .inv-body{ padding:12px 16px; gap:16px; }
-      .inv-table-wrap{ padding:0 16px 6px 16px; }
-      .totals{ padding:8px 16px 12px 16px; }
-      .inv-foot{ padding:8px 16px 12px 16px; }
+      .invoice-card{
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 8mm !important;
+        box-sizing: border-box !important;
+        page-break-inside: avoid !important;
+        transform: scale(0.75) !important;
+        transform-origin: top left !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        overflow: hidden !important;
+      }
       
-      /* Smaller fonts for print */
-      .brand h2{ font-size:16px; }
-      .brand p{ font-size:11px; }
-      .inv-meta{ font-size:11px; }
-      .section-title{ font-size:10px; }
-      .client-name{ font-size:14px; }
-      .client-addr{ font-size:12px; }
-      .inv thead th{ font-size:10px; padding:8px; }
-      .inv tbody td{ padding:8px; font-size:12px; }
-      .totals .row{ font-size:12px; }
-      .grand{ font-size:16px; }
+      /* Ultra compact spacing for print */
+      .inv-head{ 
+        padding: 4px 0 !important; 
+        margin-bottom: 6px !important;
+        flex-shrink: 0 !important;
+      }
       
-      /* Compact logo and QR */
-      .logoimg{ width:48px; height:48px; border-radius:10px; }
-      .logo{ width:48px; height:48px; border-radius:10px; }
-      .scanner-img{ width:100px; height:100px; }
-      .scanner-section{ margin-top:15px; }
+      .inv-body{ 
+        padding: 0 !important; 
+        gap: 8px !important; 
+        margin-bottom: 6px !important;
+        flex-shrink: 0 !important;
+      }
+      
+      .inv-table-wrap{ 
+        padding: 0 !important; 
+        margin-bottom: 6px !important;
+        flex-shrink: 0 !important;
+      }
+      
+      .totals{ 
+        padding: 0 !important; 
+        margin-bottom: 8px !important;
+        flex-shrink: 0 !important;
+      }
+      
+      .inv-foot{ 
+        padding: 0 !important;
+        margin-top: 0 !important;
+        flex-shrink: 0 !important;
+        gap: 8px !important;
+      }
+      
+      /* Compact print font sizes */
+      .brand h2{ font-size: 14px !important; line-height: 1.1 !important; }
+      .brand p{ font-size: 9px !important; line-height: 1.1 !important; }
+      .inv-meta{ font-size: 9px !important; line-height: 1.1 !important; }
+      .section-title{ font-size: 8px !important; line-height: 1.1 !important; }
+      .client-name{ font-size: 12px !important; line-height: 1.1 !important; }
+      .client-addr{ font-size: 10px !important; line-height: 1.2 !important; }
+      .client-box{ padding: 8px !important; }
+      
+      /* Table compact sizing */
+      .inv thead th{ 
+        font-size: 8px !important; 
+        padding: 3px !important; 
+        line-height: 1.1 !important;
+      }
+      .inv tbody td{ 
+        padding: 3px !important; 
+        font-size: 10px !important; 
+        line-height: 1.1 !important;
+      }
+      
+      /* Totals compact */
+      .totals .row{ 
+        font-size: 10px !important; 
+        gap: 8px !important;
+        margin-bottom: 2px !important;
+      }
+      .grand{ 
+        font-size: 12px !important; 
+        margin-top: 3px !important;
+        padding-top: 3px !important;
+      }
+      
+      /* Ultra compact logo and QR */
+      .logoimg{ 
+        width: 32px !important; 
+        height: 32px !important; 
+        border-radius: 6px !important; 
+      }
+      .logo{ 
+        width: 32px !important; 
+        height: 32px !important; 
+        border-radius: 6px !important; 
+      }
+      
+      /* Scanner section ultra compact */
+      .scanner-section{ 
+        text-align: center !important;
+        margin: 0 !important;
+        order: -1 !important;
+        flex-basis: auto !important;
+      }
+      .scanner-img{ 
+        width: 60px !important; 
+        height: 60px !important; 
+        margin: 0 auto 2px auto !important;
+        display: block !important;
+      }
+      .upi-id-display {
+        margin-top: 2px !important;
+        font-size: 8px !important;
+        line-height: 1.1 !important;
+      }
+      
+      /* Thanks section compact */
+      .thanks {
+        font-size: 10px !important;
+        margin: 0 !important;
+        flex: 1 !important;
+        text-align: right !important;
+      }
+      
+      /* Remove any extra margins */
+      h2, h3, p, div {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+      
+      .field {
+        margin-bottom: 0 !important;
+      }
     }
 
 
@@ -1026,13 +1166,13 @@
 
         <footer class="inv-foot">
           <!-- GPay Scanner Section -->
-<div class="scanner-section" style="text-align:center; margin-top:15px;"> <!-- Reduced margin -->
-  <!-- <h3>Scan & Pay with GPay</h3> -->
-  <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1761248154/QR_lyapoo.jpg" alt="GPay Scanner" class="scanner-img">
-  <div class="upi-id-display" style="margin-top:8px; font-size:12px; color:#666; font-weight:500;">
-    UPI ID: <span id="upiIdText">deyankur.391@okaxis</span>
-  </div>
-</div>
+          <div class="scanner-section">
+            <img src="https://res.cloudinary.com/dvd6oa63p/image/upload/v1761248154/QR_lyapoo.jpg" alt="GPay Scanner" class="scanner-img">
+            <div class="upi-id-display" style="margin-top:8px; font-size:12px; color:#666; font-weight:500;">
+              UPI ID: <span id="upiIdText">deyankur.391@okaxis</span>
+            </div>
+          </div>
+          
           <div class="thanks" id="thanksText">Thank you</div>
           <div class="foot-actions no-print">
             <!-- <button type="button" class="btn" id="downloadJsonBtn">Download JSON</button> -->
@@ -1942,26 +2082,6 @@
     }
 
     document.addEventListener("DOMContentLoaded", init);
-
-    printBtn.addEventListener("click", () => {
-      // Get client name and invoice date from the form
-      const clientName = document.getElementById("clientName").value || "Client";
-      const invoiceDate = document.getElementById("invoiceDate").value || new Date().toISOString().split("T")[0];
-
-      // Save the original document title
-      const originalTitle = document.title;
-
-      // Set new title to create a custom filename
-      document.title = `${clientName} - ${invoiceDate}`;
-
-      // Print the invoice
-      window.print();
-
-      // Restore the original title after a short delay
-      setTimeout(() => {
-        document.title = originalTitle;
-      }, 1000);
-    });
 
   </script>
 </body>
