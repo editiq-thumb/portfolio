@@ -339,7 +339,6 @@ section, div, .container {
   }
 
   img, svg, video, canvas, audio, iframe, embed, object {
-    vertical-align: middle;
     display: block;
   }
 
@@ -983,6 +982,7 @@ section, div, .container {
 
   .line-clamp-1 {
     -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
@@ -990,6 +990,7 @@ section, div, .container {
 
   .line-clamp-2 {
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
@@ -4357,6 +4358,7 @@ section, div, .container {
 
   :is(.\*\:data-\[slot\=select-value\]\:line-clamp-1 > *)[data-slot="select-value"] {
     -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
@@ -6971,10 +6973,7 @@ select:-webkit-autofill:focus {
 }
 
 
-/* HIDE PAGE INITIALLY */
-body {
-  /* visibility: hidden; */
-}
+/* HIDE PAGE INITIALLY - Removed empty body rule */
 
 /* ============================================
    FULL SCREEN PAGE LOADER
