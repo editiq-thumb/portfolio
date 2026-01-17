@@ -1620,7 +1620,23 @@
 
       // Print
       printBtn.addEventListener("click", () => {
+        // Get client name and invoice date from the form
+        const clientName = clientNameInput.value || "Client";
+        const invoiceDate = invoiceDateInput.value || new Date().toISOString().split("T")[0];
+
+        // Save the original document title
+        const originalTitle = document.title;
+
+        // Set new title to create a custom filename for PDF save
+        document.title = `${clientName} - ${invoiceDate}`;
+
+        // Print the invoice
         window.print();
+
+        // Restore the original title after a short delay
+        setTimeout(() => {
+          document.title = originalTitle;
+        }, 1000);
       });
 
       // Download JSON (button is commented out; listener left unchanged)
