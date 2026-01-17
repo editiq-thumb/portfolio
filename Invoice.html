@@ -318,7 +318,7 @@
       .scanner-img{ width:120px; height:120px; }
     }
 
-    /* Print only the invoice card - OPTIMIZED FOR 1 PAGE */
+    /* Print only the invoice card - PERFECT PAGE FILL */
     @media print {
       * {
         -webkit-print-color-adjust: exact !important;
@@ -329,8 +329,8 @@
         background: #fff !important; 
         margin: 0 !important; 
         padding: 0 !important; 
-        font-size: 11px !important;
-        line-height: 1.2 !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
       }
       
       body * { visibility: hidden !important; }
@@ -345,112 +345,126 @@
         width: 100% !important;
         height: 100vh !important;
         max-width: 100% !important;
-        padding: 0 !important;
+        padding: 12mm !important;
         margin: 0 !important;
+        box-sizing: border-box !important;
         overflow: hidden !important;
       }
       
       .invoice-card{
-        position: absolute !important;
-        left: 0 !important;
-        top: 0 !important;
+        position: relative !important;
         width: 100% !important;
-        height: 100vh !important;
+        height: 100% !important;
         max-width: 100% !important;
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
         margin: 0 !important;
-        padding: 8mm !important;
+        padding: 0 !important;
         box-sizing: border-box !important;
         page-break-inside: avoid !important;
-        transform: scale(0.75) !important;
-        transform-origin: top left !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important;
+        justify-content: space-between !important;
         overflow: hidden !important;
       }
       
-      /* Ultra compact spacing for print */
+      /* Header section - fixed height */
       .inv-head{ 
-        padding: 4px 0 !important; 
-        margin-bottom: 6px !important;
+        padding: 0 0 16px 0 !important; 
+        margin-bottom: 16px !important;
         flex-shrink: 0 !important;
+        border-bottom: 2px solid #ddd !important;
       }
       
+      /* Body section - fixed height */
       .inv-body{ 
         padding: 0 !important; 
-        gap: 8px !important; 
-        margin-bottom: 6px !important;
+        gap: 16px !important; 
+        margin-bottom: 16px !important;
         flex-shrink: 0 !important;
       }
       
+      /* Table section - takes remaining space */
       .inv-table-wrap{ 
         padding: 0 !important; 
-        margin-bottom: 6px !important;
-        flex-shrink: 0 !important;
+        margin-bottom: 16px !important;
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
       }
       
+      .inv {
+        flex: 1 !important;
+        height: 100% !important;
+      }
+      
+      /* Totals section - fixed height */
       .totals{ 
-        padding: 0 !important; 
-        margin-bottom: 8px !important;
+        padding: 16px 0 0 0 !important; 
+        margin-bottom: 16px !important;
         flex-shrink: 0 !important;
+        border-top: 2px solid #ddd !important;
       }
       
+      /* Footer section - fixed height */
       .inv-foot{ 
-        padding: 0 !important;
+        padding: 16px 0 0 0 !important;
         margin-top: 0 !important;
         flex-shrink: 0 !important;
-        gap: 8px !important;
+        gap: 16px !important;
+        border-top: 2px solid #ddd !important;
+        min-height: 120px !important;
       }
       
-      /* Compact print font sizes */
-      .brand h2{ font-size: 14px !important; line-height: 1.1 !important; }
-      .brand p{ font-size: 9px !important; line-height: 1.1 !important; }
-      .inv-meta{ font-size: 9px !important; line-height: 1.1 !important; }
-      .section-title{ font-size: 8px !important; line-height: 1.1 !important; }
-      .client-name{ font-size: 12px !important; line-height: 1.1 !important; }
-      .client-addr{ font-size: 10px !important; line-height: 1.2 !important; }
-      .client-box{ padding: 8px !important; }
+      /* Larger, readable fonts */
+      .brand h2{ font-size: 20px !important; line-height: 1.2 !important; font-weight: 700 !important; }
+      .brand p{ font-size: 13px !important; line-height: 1.3 !important; }
+      .inv-meta{ font-size: 13px !important; line-height: 1.3 !important; }
+      .section-title{ font-size: 12px !important; line-height: 1.2 !important; font-weight: 600 !important; }
+      .client-name{ font-size: 16px !important; line-height: 1.2 !important; font-weight: 600 !important; }
+      .client-addr{ font-size: 13px !important; line-height: 1.4 !important; }
+      .client-box{ padding: 12px !important; }
       
-      /* Table compact sizing */
+      /* Table with generous spacing */
       .inv thead th{ 
-        font-size: 8px !important; 
-        padding: 3px !important; 
-        line-height: 1.1 !important;
+        font-size: 12px !important; 
+        padding: 12px !important; 
+        line-height: 1.2 !important;
+        font-weight: 600 !important;
       }
       .inv tbody td{ 
-        padding: 3px !important; 
-        font-size: 10px !important; 
-        line-height: 1.1 !important;
+        padding: 12px !important; 
+        font-size: 13px !important; 
+        line-height: 1.4 !important;
       }
       
-      /* Totals compact */
+      /* Totals with good spacing */
       .totals .row{ 
-        font-size: 10px !important; 
-        gap: 8px !important;
-        margin-bottom: 2px !important;
+        font-size: 14px !important; 
+        gap: 16px !important;
+        margin-bottom: 6px !important;
       }
       .grand{ 
-        font-size: 12px !important; 
-        margin-top: 3px !important;
-        padding-top: 3px !important;
+        font-size: 18px !important; 
+        margin-top: 12px !important;
+        padding-top: 12px !important;
+        font-weight: 700 !important;
       }
       
-      /* Ultra compact logo and QR */
+      /* Proper logo and QR sizes */
       .logoimg{ 
-        width: 32px !important; 
-        height: 32px !important; 
-        border-radius: 6px !important; 
+        width: 60px !important; 
+        height: 60px !important; 
+        border-radius: 10px !important; 
       }
       .logo{ 
-        width: 32px !important; 
-        height: 32px !important; 
-        border-radius: 6px !important; 
+        width: 60px !important; 
+        height: 60px !important; 
+        border-radius: 10px !important; 
       }
       
-      /* Scanner section ultra compact */
+      /* Scanner section with good proportions */
       .scanner-section{ 
         text-align: center !important;
         margin: 0 !important;
@@ -458,33 +472,63 @@
         flex-basis: auto !important;
       }
       .scanner-img{ 
-        width: 60px !important; 
-        height: 60px !important; 
-        margin: 0 auto 2px auto !important;
+        width: 120px !important; 
+        height: 120px !important; 
+        margin: 0 auto 8px auto !important;
         display: block !important;
       }
       .upi-id-display {
-        margin-top: 2px !important;
-        font-size: 8px !important;
-        line-height: 1.1 !important;
+        margin-top: 8px !important;
+        font-size: 12px !important;
+        line-height: 1.2 !important;
       }
       
-      /* Thanks section compact */
+      /* Thanks section */
       .thanks {
-        font-size: 10px !important;
+        font-size: 16px !important;
         margin: 0 !important;
         flex: 1 !important;
         text-align: right !important;
+        align-self: flex-end !important;
+        font-weight: 600 !important;
       }
       
-      /* Remove any extra margins */
-      h2, h3, p, div {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
+      /* Dynamic scaling for different item counts */
+      .invoice-card[data-items="1"] {
+        font-size: 16px !important;
       }
       
-      .field {
-        margin-bottom: 0 !important;
+      .invoice-card[data-items="1"] .scanner-img {
+        width: 140px !important; 
+        height: 140px !important;
+      }
+      
+      .invoice-card[data-items="2"], .invoice-card[data-items="3"] {
+        font-size: 15px !important;
+      }
+      
+      .invoice-card[data-items="4"], .invoice-card[data-items="5"] {
+        font-size: 14px !important;
+      }
+      
+      .invoice-card[data-items="6"], .invoice-card[data-items="7"] {
+        font-size: 13px !important;
+      }
+      
+      .invoice-card[data-items="8"] {
+        font-size: 12px !important;
+      }
+      
+      /* Adjust table row height based on items */
+      .invoice-card[data-items="1"] .inv tbody td,
+      .invoice-card[data-items="2"] .inv tbody td {
+        padding: 16px 12px !important;
+      }
+      
+      .invoice-card[data-items="6"] .inv tbody td,
+      .invoice-card[data-items="7"] .inv tbody td,
+      .invoice-card[data-items="8"] .inv tbody td {
+        padding: 8px 12px !important;
       }
     }
 
@@ -1395,6 +1439,12 @@
       updateQRCode();
 
       itemsCountText.textContent = state.items.length;
+
+      // Set data attribute for dynamic print scaling
+      const invoiceCard = el("#invoiceCard");
+      if (invoiceCard) {
+        invoiceCard.setAttribute('data-items', state.items.length);
+      }
 
       // Table
       itemsTbody.innerHTML = "";
