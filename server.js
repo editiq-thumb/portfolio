@@ -20,8 +20,21 @@ const mimeTypes = {
 
 const server = http.createServer((req, res) => {
   let filePath = '.' + req.url;
+  
+  // Website shortcuts - redirects
+  if (filePath === './work') {
+    res.writeHead(302, { 'Location': 'https://edit-iq.github.io/editiq-workshop/' });
+    res.end();
+    return;
+  }
+  
+  // Local file routes
   if (filePath === './') {
     filePath = './index.html';
+  } else if (filePath === './invoice' || filePath === './bill') {
+    filePath = './Invoice.html';
+  } else if (filePath === './shortcuts') {
+    filePath = './shortcuts.html';
   }
 
   const extname = String(path.extname(filePath)).toLowerCase();
