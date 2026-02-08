@@ -118,7 +118,7 @@ console.log('%cdum hai toh kuch karke dikha', 'font-size: 16px; color: white;');
 let consoleClearInterval = setInterval(() => {
   if (securityEnabled) {
     console.clear();
-    console.log('%cFUCK YOU 🖕', 'color: red; font-size: 50px; font-weight: bold;');
+    console.log('%c😂😂😂😂😂', 'color: red; font-size: 50px; font-weight: bold;');
     console.log('%cidhar se kuch nhi ukhar payega', 'font-size: 20px; color: white;');
     console.log('%cdum hai toh kuch karke dikha', 'font-size: 16px; color: white;');
   }
