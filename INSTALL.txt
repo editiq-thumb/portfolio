@@ -1,0 +1,116 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║          EditIQ Admin Panel - Installation Guide            ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+📋 REQUIREMENTS:
+   • Node.js (v14 or higher)
+   • npm (comes with Node.js)
+   • Web browser (Chrome, Firefox, Safari, Edge)
+
+🚀 INSTALLATION STEPS:
+
+   Step 1: Install Node.js
+   ─────────────────────────────────────────────────────────────
+   If you don't have Node.js installed:
+   1. Go to: https://nodejs.org/
+   2. Download LTS version
+   3. Install with default settings
+   4. Verify installation:
+      Open terminal/cmd and type: node --version
+
+
+   Step 2: Install Dependencies
+   ─────────────────────────────────────────────────────────────
+   Open terminal/command prompt in this folder and run:
+   
+   npm install
+   
+   Wait for installation to complete (1-2 minutes)
+
+
+   Step 3: Start the Server
+   ─────────────────────────────────────────────────────────────
+   Run this command:
+   
+   npm start
+   
+   You should see:
+   ✅ EditIQ Admin Panel Server running on http://localhost:3000
+
+
+   Step 4: Open in Browser
+   ─────────────────────────────────────────────────────────────
+   Open your web browser and go to:
+   
+   http://localhost:3000/login
+
+
+   Step 5: Login
+   ─────────────────────────────────────────────────────────────
+   Use these credentials:
+   
+   Username: Editiq.admin
+   Password: Editiq.Password
+
+
+🎉 DONE! You're now in the Admin Dashboard!
+
+═══════════════════════════════════════════════════════════════
+
+📚 IMPORTANT FILES:
+
+   • START_ADMIN_PANEL.md     → Quick start guide
+   • README_ADMIN_PANEL.md    → Full documentation
+   • ADMIN_PANEL_SUMMARY.md   → Feature summary
+   • .env                     → Configuration (change password here!)
+
+═══════════════════════════════════════════════════════════════
+
+🔗 USEFUL URLS:
+
+   Main Website:      http://localhost:3000/
+   Login Page:        http://localhost:3000/login
+   Admin Dashboard:   http://localhost:3000/admin-dashboard
+   Editor Dashboard:  http://localhost:3000/editor-dashboard
+
+═══════════════════════════════════════════════════════════════
+
+⚠️  SECURITY WARNING:
+
+   Before going live, change these in .env file:
+   • ADMIN_ID
+   • ADMIN_PASSWORD
+   • JWT_SECRET
+
+═══════════════════════════════════════════════════════════════
+
+🆘 TROUBLESHOOTING:
+
+   Problem: "npm: command not found"
+   Solution: Install Node.js from https://nodejs.org/
+
+   Problem: "Port 3000 already in use"
+   Solution: Change PORT in .env file to 3001
+
+   Problem: "Cannot login"
+   Solution: Check username and password are correct
+
+   Problem: Server won't start
+   Solution: Delete node_modules folder, run npm install again
+
+═══════════════════════════════════════════════════════════════
+
+📧 SUPPORT:
+
+   Email: editiq2003@gmail.com
+   
+   For detailed help, read:
+   • START_ADMIN_PANEL.md
+   • README_ADMIN_PANEL.md
+
+═══════════════════════════════════════════════════════════════
+
+✨ ENJOY YOUR NEW ADMIN PANEL! ✨
+
