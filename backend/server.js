@@ -5,6 +5,11 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const path = require('path');
+const fs = require('fs').promises;
+const { exec } = require('child_process');
+const util = require('util');
+
+const execPromise = util.promisify(exec);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -66,6 +71,22 @@ let database = {
       category: "tech",
       ctr: "11.5%",
       createdAt: new Date().toISOString()
+    },
+    {
+      id: 7,
+      title: "ass",
+      imageUrl: "https://res.cloudinary.com/dfftihzvd/image/upload/v1771438841/main-sample.png",
+      category: "tech",
+      ctr: "dddd",
+      createdAt: new Date().toISOString()
+    },
+    {
+      id: 8,
+      title: "asss",
+      imageUrl: "https://res.cloudinary.com/dfftihzvd/image/upload/v1771438841/cld-sample-3.jpg",
+      category: "tech",
+      ctr: "sddd",
+      createdAt: new Date().toISOString()
     }
   ],
   socialMedia: {
@@ -112,11 +133,21 @@ const checkRole = (roles) => {
 
 // Login Route
 app.post('/api/auth/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
 
   // Validate input
   if (!username || !password) {
     return res.status(400).json({ error: 'Username and password are required.' });
+  }
+
+  // Check if email is provided for admin-auto access
+  if (email) {
+    const allowedEmails = process.env.ALLOWED_ADMIN_EMAILS?.split(',').map(e => e.trim().toLowerCase()) || [];
+    const userEmail = email.trim().toLowerCase();
+    
+    if (!allowedEmails.includes(userEmail)) {
+      return res.status(403).json({ error: 'Access denied. Your email is not authorized.' });
+    }
   }
 
   // Check credentials
@@ -126,7 +157,8 @@ app.post('/api/auth/login', async (req, res) => {
       { 
         username: username, 
         role: 'admin',
-        id: 'admin_001'
+        id: 'admin_001',
+        email: email || null
       },
       process.env.JWT_SECRET,
       { expiresIn: process.env.SESSION_TIMEOUT || '24h' }
@@ -138,12 +170,48 @@ app.post('/api/auth/login', async (req, res) => {
       user: {
         username: username,
         role: 'admin',
-        id: 'admin_001'
+        id: 'admin_001',
+        email: email || null
       }
     });
   } else {
     res.status(401).json({ error: 'Invalid credentials.' });
   }
+});
+
+// Google Login Route
+app.post('/api/auth/google-login', async (req, res) => {
+  const { credential, email } = req.body;
+
+  // Check if email is allowed
+  const allowedEmails = process.env.ALLOWED_ADMIN_EMAILS?.split(',').map(e => e.trim().toLowerCase()) || [];
+  const userEmail = email.trim().toLowerCase();
+  
+  if (!allowedEmails.includes(userEmail)) {
+    return res.status(403).json({ error: 'Access denied. Your email is not authorized.' });
+  }
+
+  // Generate JWT token
+  const token = jwt.sign(
+    { 
+      email: email,
+      role: 'admin',
+      id: 'admin_google',
+      loginMethod: 'google'
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: '24h' }
+  );
+
+  res.json({
+    success: true,
+    token,
+    user: {
+      email: email,
+      role: 'admin',
+      loginMethod: 'google'
+    }
+  });
 });
 
 // Verify Token Route
@@ -209,6 +277,90 @@ app.post('/api/thumbnails', authenticateToken, checkRole(['admin']), (req, res) 
   });
 });
 
+// Add thumbnail to index.html and push to GitHub (Admin only)
+app.post('/api/thumbnails/add-to-portfolio', authenticateToken, checkRole(['admin']), async (req, res) => {
+  const { title, imageUrl, category, ctr } = req.body;
+
+  if (!title || !imageUrl || !category) {
+    return res.status(400).json({ error: 'Title, image URL, and category are required.' });
+  }
+
+  try {
+    // Add to in-memory database first
+    const newThumbnail = {
+      id: database.thumbnails.length + 1,
+      title,
+      imageUrl,
+      category: category.toLowerCase(),
+      ctr: ctr || 'N/A',
+      createdAt: new Date().toISOString()
+    };
+    database.thumbnails.push(newThumbnail);
+
+    // Read index.html
+    const indexPath = path.join(__dirname, '../index.html');
+    let htmlContent = await fs.readFile(indexPath, 'utf8');
+
+    // Generate the portfolio card HTML with proper formatting
+    const portfolioCard = `
+  <div class="portfolio-card" data-category="${category.toLowerCase()}">
+    <div class="thumb">
+      <img src="${imageUrl}" alt="${title}">
+      <div class="thumb-overlay"></div>
+      <button class="eye-btn" type="button" data-img="${imageUrl}" aria-label="Preview image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M1.5 12C3.5 7.5 7.5 4.5 12 4.5C16.5 4.5 20.5 7.5 22.5 12C20.5 16.5 16.5 19.5 12 19.5C7.5 19.5 3.5 16.5 1.5 12Z" stroke="white" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="card-content">
+      <div class="category">${category.toUpperCase()}</div>
+      <div class="title">${title}</div>
+      <div class="ctr">${ctr || 'N/A'}</div>
+    </div>
+  </div>
+`;
+
+    // Find the marker comment or last portfolio card and insert after it
+    const marker = '<section id="other-portfolio"';
+    const markerIndex = htmlContent.indexOf(marker);
+    
+    if (markerIndex !== -1) {
+      // Insert before the other-portfolio section
+      htmlContent = htmlContent.slice(0, markerIndex) + portfolioCard + '\n' + htmlContent.slice(markerIndex);
+
+      // Write updated HTML back to file
+      await fs.writeFile(indexPath, htmlContent, 'utf8');
+
+      // Git operations
+      try {
+        await execPromise('git add index.html', { cwd: path.join(__dirname, '..') });
+        await execPromise(`git commit -m "Added new portfolio thumbnail: ${title}"`, { cwd: path.join(__dirname, '..') });
+        await execPromise('git push origin main', { cwd: path.join(__dirname, '..') });
+
+        res.json({
+          success: true,
+          message: 'Thumbnail added to portfolio and pushed to GitHub successfully!',
+          thumbnail: newThumbnail
+        });
+      } catch (gitError) {
+        console.error('Git error:', gitError);
+        res.json({
+          success: true,
+          message: 'Thumbnail added to index.html but Git push failed. Please push manually.',
+          error: gitError.message
+        });
+      }
+    } else {
+      res.status(500).json({ error: 'Could not find insertion point in index.html' });
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Failed to add thumbnail: ' + error.message });
+  }
+});
+
 // Update thumbnail (Admin only)
 app.put('/api/thumbnails/:id', authenticateToken, checkRole(['admin']), (req, res) => {
   const { title, imageUrl, category, ctr } = req.body;
@@ -235,19 +387,110 @@ app.put('/api/thumbnails/:id', authenticateToken, checkRole(['admin']), (req, re
 });
 
 // Delete thumbnail (Admin only)
-app.delete('/api/thumbnails/:id', authenticateToken, checkRole(['admin']), (req, res) => {
+app.delete('/api/thumbnails/:id', authenticateToken, checkRole(['admin']), async (req, res) => {
   const thumbnailIndex = database.thumbnails.findIndex(t => t.id === parseInt(req.params.id));
 
   if (thumbnailIndex === -1) {
     return res.status(404).json({ error: 'Thumbnail not found.' });
   }
 
+  const thumbnail = database.thumbnails[thumbnailIndex];
+  
+  // Remove from in-memory database
   database.thumbnails.splice(thumbnailIndex, 1);
 
-  res.json({
-    success: true,
-    message: 'Thumbnail deleted successfully.'
-  });
+  // Also remove from index.html
+  try {
+    const indexPath = path.join(__dirname, '../index.html');
+    let htmlContent = await fs.readFile(indexPath, 'utf8');
+
+    // Find and remove the portfolio card with this image URL
+    const imageUrl = thumbnail.imageUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape special chars
+    const cardPattern = new RegExp(
+      `\\s*<div class="portfolio-card"[^>]*>[\\s\\S]*?<img src="${imageUrl}"[\\s\\S]*?<\\/div>\\s*<\\/div>\\s*`,
+      'g'
+    );
+    
+    htmlContent = htmlContent.replace(cardPattern, '\n');
+
+    // Write back to file
+    await fs.writeFile(indexPath, htmlContent, 'utf8');
+
+    // Git operations
+    try {
+      await execPromise('git add index.html', { cwd: path.join(__dirname, '..') });
+      await execPromise(`git commit -m "Deleted thumbnail: ${thumbnail.title}"`, { cwd: path.join(__dirname, '..') });
+      await execPromise('git push origin main', { cwd: path.join(__dirname, '..') });
+
+      res.json({
+        success: true,
+        message: 'Thumbnail deleted from website and pushed to GitHub successfully.'
+      });
+    } catch (gitError) {
+      console.error('Git error:', gitError);
+      res.json({
+        success: true,
+        message: 'Thumbnail deleted from index.html but Git push failed. Please push manually.'
+      });
+    }
+  } catch (error) {
+    console.error('Error deleting from HTML:', error);
+    res.json({
+      success: true,
+      message: 'Thumbnail deleted from admin panel only. Please refresh the website manually.'
+    });
+  }
+});
+
+// Manual Git Push (Admin only)
+app.post('/api/git/push', authenticateToken, checkRole(['admin']), async (req, res) => {
+  try {
+    await execPromise('git add .', { cwd: path.join(__dirname, '..') });
+    await execPromise('git commit -m "Manual update from admin panel"', { cwd: path.join(__dirname, '..') });
+    await execPromise('git push origin main', { cwd: path.join(__dirname, '..') });
+
+    res.json({
+      success: true,
+      message: 'Successfully pushed to GitHub!'
+    });
+  } catch (error) {
+    console.error('Git error:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Git push failed: ' + error.message 
+    });
+  }
+});
+
+// Push Code to GitHub (Admin only)
+app.post('/api/git/push-code', authenticateToken, checkRole(['admin']), async (req, res) => {
+  const { code } = req.body;
+
+  if (!code) {
+    return res.status(400).json({ error: 'Code is required' });
+  }
+
+  try {
+    // Write code to index.html
+    const indexPath = path.join(__dirname, '../index.html');
+    await fs.writeFile(indexPath, code, 'utf8');
+
+    // Git operations
+    await execPromise('git add index.html', { cwd: path.join(__dirname, '..') });
+    await execPromise('git commit -m "Updated index.html from admin dashboard"', { cwd: path.join(__dirname, '..') });
+    await execPromise('git push origin main', { cwd: path.join(__dirname, '..') });
+
+    res.json({
+      success: true,
+      message: 'Code successfully pushed to GitHub! ✅'
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Failed to push code: ' + error.message 
+    });
+  }
 });
 
 // ==================== SOCIAL MEDIA ROUTES ====================
@@ -334,22 +577,17 @@ app.get('/api/public/social-media', (req, res) => {
 
 // ==================== HTML ROUTES ====================
 
-// Admin route - redirects to login
+// Admin route - redirects to admin-auto
 app.get('/admin', (req, res) => {
-  res.redirect('/login');
+  res.redirect('/admin-auto');
 });
 
-// Serve login page
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/login.html'));
+// Serve admin panel (ONLY ONE)
+app.get('/admin-auto', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/admin-auto.html'));
 });
 
-// Serve admin dashboard
-app.get('/admin-dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/admin-dashboard.html'));
-});
-
-// Serve editor dashboard (public - no login required)
+// Serve editor dashboard
 app.get('/editor-dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/editor-dashboard.html'));
 });
