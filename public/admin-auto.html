@@ -138,12 +138,7 @@ tr:hover td{background:rgba(0,191,255,.04);}
         </div>
         <div class="card">
           <div class="card-t">Add New Category</div>
-          <form class="inline-form" id="add-cat-form" onsubmit="addCategory(event)" style="padding:12px;">
-            <div style="display:flex;gap:10px;align-items:flex-end;">
-              <div class="fg" style="flex:1;margin:0;"><label class="fl">Category Name</label><input class="fi" id="new-cat" placeholder="e.g. Finance" required></div>
-              <button type="submit" class="btn btn-secondary">+ Add Category</button>
-            </div>
-          </form>
+          <div class="inline-form" style="padding:12px;"><div style="display:flex;gap:10px;align-items:flex-end;"><div class="fg" style="flex:1;margin:0;"><label class="fl">Category Name</label><input class="fi" id="new-cat" placeholder="e.g. Finance"></div><button type="button" class="btn btn-secondary" onclick="addCategory()">+ Add Category</button></div><div id="cat-list" style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;"></div></div>
         </div>
         <div class="card">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
@@ -342,21 +337,22 @@ async function saveEdit() {
   } catch { toast('Network error',true); }
 }
 
-function addCategory(e) {
-  e.preventDefault();
+function addCategory() {
   const val=document.getElementById('new-cat').value.trim().toLowerCase();
-  if(!val)return;
-  if(categories.includes(val)){toast('Category already exists',true);return;}
+  if(!val){toast('Enter a category name',true);return;}
+  if(categories.includes(val)){toast('Already exists',true);return;}
   categories.push(val);
   ['at-cat','et-cat'].forEach(id=>{
-    const sel=document.getElementById(id);
-    const opt=document.createElement('option');
-    opt.value=val; opt.textContent=val.charAt(0).toUpperCase()+val.slice(1);
-    sel.appendChild(opt);
+    const sel=document.getElementById(id);if(!sel)return;
+    const opt=document.createElement('option');opt.value=val;opt.textContent=val.charAt(0).toUpperCase()+val.slice(1);sel.appendChild(opt);
   });
   document.getElementById('new-cat').value='';
-  document.getElementById('st-cats').textContent=categories.length;
-  toast('Category added: '+val);
+  renderCatList();updateStats();toast('Category added: '+val);
+}
+
+function renderCatList(){
+  const el=document.getElementById('cat-list');if(!el)return;
+  el.innerHTML=categories.map(c=>'<span style="background:rgba(0,191,255,.15);color:#00bfff;padding:4px 10px;border-radius:20px;font-size:12px;">'+c+'</span>').join('');
 }
 
 async function loadClients() {

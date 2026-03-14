@@ -26,14 +26,14 @@ let db = {
     { id: 4, title: "iPhone VS Camera", imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991748/hrittik_thumb_kgqai8.jpg", category: "tech", ctr: "12.8%" },
     { id: 5, title: "Rs15K Gaming PC", imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/pc_build_ymmoee.jpg", category: "tech", ctr: "15.2%" },
     { id: 6, title: "Apple Fake in Japan", imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/tech_oliybg.jpg", category: "tech", ctr: "11.5%" }
-  ],
+  ], // END_THUMBNAILS
   clients: [
     { id: 1, name: "Whatif with Abhishek", imageUrl: "images/client1.png", subscribers: "11M", channelUrl: "https://www.youtube.com/@Whatifwithabhishek" },
     { id: 2, name: "Techno Gamerz", imageUrl: "images/client2.png", subscribers: "49M", channelUrl: "https://www.youtube.com/@TechnoGamerzOfficial" },
     { id: 3, name: "Happy Prince Gaming", imageUrl: "images/client3.png", subscribers: "7M", channelUrl: "https://www.youtube.com/@HappyPrinceGaming" },
     { id: 4, name: "Sokher Gamer", imageUrl: "images/client4.png", subscribers: "2.2M", channelUrl: "https://www.youtube.com/@SokherGamer" }
-  ],
-  socialMedia: { instagram: "https://instagram.com/editiq", twitter: "https://twitter.com/editiq", youtube: "https://youtube.com/@editiq", linkedin: "https://linkedin.com/company/editiq" },
+  ], // END_CLIENTS
+  socialMedia: { instagram: "https://instagram.com/editiq", twitter: "https://twitter.com/editiq", youtube: "https://youtube.com/@editiq", linkedin: "https://linkedin.com/company/editiq" }, // END_SOCIAL
   settings: { maintenanceMode: false }
 };
 
@@ -123,20 +123,46 @@ app.put("/api/settings", auth, role(["admin"]), (req, res) => {
 app.post("/api/git/push", auth, role(["admin"]), async (req, res) => {
   const cwd = path.join(__dirname, "..");
   try {
-    // Update static fallback in index.html with current thumbnails
+    // 1. Update index.html static fallback thumbnails
     const indexPath = path.join(cwd, "index.html");
     let html = fs.readFileSync(indexPath, "utf8");
     const thumbJson = db.thumbnails.map(t =>
       `        { imageUrl: "${t.imageUrl}", title: "${t.title}", category: "${t.category}", ctr: "${t.ctr}" }`
     ).join(",\n");
-    const newBlock = "// Live site: render static fallback cards\n      const staticThumbs = [\n" + thumbJson + "\n      ];";
-    html = html.replace(/\/\/ Live site: render static fallback cards\n\s*const staticThumbs = \[[\s\S]*?\];/, newBlock);
+    html = html.replace(
+      /\/\/ Live site: render static fallback cards\n\s*const staticThumbs = \[[\s\S]*?\];/,
+      "// Live site: render static fallback cards\n      const staticThumbs = [\n" + thumbJson + "\n      ];"
+    );
     fs.writeFileSync(indexPath, html, "utf8");
 
+    // 2. Update server.js default db data
+    const serverPath = path.join(cwd, "backend", "server.js");
+    let serverJs = fs.readFileSync(serverPath, "utf8");
+
+    const thumbsData = db.thumbnails.map(t => "    " + JSON.stringify(t)).join(",\n");
+    serverJs = serverJs.replace(
+      /thumbnails: \[[\s\S]*?\], \/\/ END_THUMBNAILS/,
+      "thumbnails: [\n" + thumbsData + "\n  ], // END_THUMBNAILS"
+    );
+
+    const clientsData = db.clients.map(c => "    " + JSON.stringify(c)).join(",\n");
+    serverJs = serverJs.replace(
+      /clients: \[[\s\S]*?\], \/\/ END_CLIENTS/,
+      "clients: [\n" + clientsData + "\n  ], // END_CLIENTS"
+    );
+
+    serverJs = serverJs.replace(
+      /socialMedia: \{[^}]*\}, \/\/ END_SOCIAL/,
+      "socialMedia: " + JSON.stringify(db.socialMedia) + ", // END_SOCIAL"
+    );
+
+    fs.writeFileSync(serverPath, serverJs, "utf8");
+
+    // 3. Commit and force push
     await execPromise("git add .", { cwd });
     const { stdout } = await execPromise("git status --porcelain", { cwd });
     if (stdout.trim()) {
-      await execPromise("git commit -m \"Update thumbnails from admin panel\"", { cwd });
+      await execPromise("git commit -m \"Update data from admin panel\"", { cwd });
     }
     try { await execPromise("git rebase --abort", { cwd }); } catch (_) {}
     await execPromise("git push origin main --force", { cwd });
