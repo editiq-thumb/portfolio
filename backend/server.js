@@ -127,6 +127,7 @@ app.post("/api/git/push", auth, role(["admin"]), async (req, res) => {
     if (stdout.trim()) {
       await execPromise("git commit -m \"Update from admin panel\"", { cwd });
     }
+    await execPromise("git pull origin main --rebase", { cwd });
     await execPromise("git push origin main", { cwd });
     res.json({ success: true, message: "Pushed to GitHub!" });
   } catch (e) {
