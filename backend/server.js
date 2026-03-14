@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const path = require("path");
+const fs = require("fs");
 const { exec } = require("child_process");
 const execPromise = require("util").promisify(exec);
 
@@ -122,13 +123,23 @@ app.put("/api/settings", auth, role(["admin"]), (req, res) => {
 app.post("/api/git/push", auth, role(["admin"]), async (req, res) => {
   const cwd = path.join(__dirname, "..");
   try {
+    // Update static fallback in index.html with current thumbnails
+    const indexPath = path.join(cwd, "index.html");
+    let html = fs.readFileSync(indexPath, "utf8");
+    const thumbJson = db.thumbnails.map(t =>
+      `        { imageUrl: "${t.imageUrl}", title: "${t.title}", category: "${t.category}", ctr: "${t.ctr}" }`
+    ).join(",\n");
+    const newBlock = "// Live site: render static fallback cards\n      const staticThumbs = [\n" + thumbJson + "\n      ];";
+    html = html.replace(/\/\/ Live site: render static fallback cards\n\s*const staticThumbs = \[[\s\S]*?\];/, newBlock);
+    fs.writeFileSync(indexPath, html, "utf8");
+
     await execPromise("git add .", { cwd });
     const { stdout } = await execPromise("git status --porcelain", { cwd });
     if (stdout.trim()) {
-      await execPromise("git commit -m \"Update from admin panel\"", { cwd });
+      await execPromise("git commit -m \"Update thumbnails from admin panel\"", { cwd });
     }
-    await execPromise("git pull origin main --rebase", { cwd });
-    await execPromise("git push origin main", { cwd });
+    try { await execPromise("git rebase --abort", { cwd }); } catch (_) {}
+    await execPromise("git push origin main --force", { cwd });
     res.json({ success: true, message: "Pushed to GitHub!" });
   } catch (e) {
     res.status(500).json({ success: false, error: e.message });
