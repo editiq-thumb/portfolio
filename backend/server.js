@@ -120,11 +120,15 @@ app.put("/api/settings", auth, role(["admin"]), (req, res) => {
 });
 
 app.post("/api/git/push", auth, role(["admin"]), async (req, res) => {
+  const cwd = path.join(__dirname, "..");
   try {
-    await execPromise("git add .", { cwd: path.join(__dirname, "..") });
-    await execPromise("git commit -m \"Update from admin panel\"", { cwd: path.join(__dirname, "..") });
-    await execPromise("git push origin main", { cwd: path.join(__dirname, "..") });
-    res.json({ success: true, message: "Pushed!" });
+    await execPromise("git add .", { cwd });
+    const { stdout } = await execPromise("git status --porcelain", { cwd });
+    if (stdout.trim()) {
+      await execPromise("git commit -m \"Update from admin panel\"", { cwd });
+    }
+    await execPromise("git push origin main", { cwd });
+    res.json({ success: true, message: "Pushed to GitHub!" });
   } catch (e) {
     res.status(500).json({ success: false, error: e.message });
   }
