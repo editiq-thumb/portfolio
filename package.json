@@ -2,7 +2,7 @@
   "name": "editiq-admin-panel",
   "version": "1.0.0",
   "description": "EditIQ Admin Panel with Authentication",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js"

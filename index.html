@@ -9,8 +9,7 @@
     <meta name="description" content="EditIQ creates scroll-stopping thumbnails that help YouTube creators increase CTR and grow their channels.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" sizes="256x256" type="image/x-icon">
-    <!-- Security Script -->
-    <!-- <script src="security.js"></script> -->
+
     <style>
         @keyframes scroll-x {
             from { transform: translateX(0); }
@@ -1608,7 +1607,9 @@ function switchCurrency(button, currency) {
         { imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/thumbnail_2_pihncp.jpg", title: "LinkedIn Growth Strategy", category: "business", ctr: "11.5%" },
         { imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991748/hrittik_thumb_kgqai8.jpg", title: "iPhone VS Camera", category: "tech", ctr: "12.8%" },
         { imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/pc_build_ymmoee.jpg", title: "\u20b915K Gaming PC", category: "tech", ctr: "15.2%" },
-        { imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/tech_oliybg.jpg", title: "Apple Fake in Japan", category: "tech", ctr: "11.5%" }
+        { imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1760991750/tech_oliybg.jpg", title: "Apple Fake in Japan", category: "tech", ctr: "11.5%" },
+        { imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1773515624/aswinms_bn8s8p.jpg", title: "The Untold Story of Hindus in Kerala", category: "irl", ctr: "12.1%" },
+        { imageUrl: "https://res.cloudinary.com/dvd6oa63p/image/upload/v1773515624/fatima_zuzfzd.jpg", title: "Why I'll Never Work a 9-5 Again", category: "irl", ctr: "13.5%" }
       ];
       grid.innerHTML = '';
       staticThumbs.forEach(t => grid.appendChild(buildCard(t)));
@@ -1663,7 +1664,7 @@ function switchCurrency(button, currency) {
   
   function updateSocialLinks(socialMedia) {
     // Update any social media links on the page
-    const instagramLinks = document.querySelectorAll('a[href*="instagram"]');
+    const instagramLinks = document.querySelectorAll('a[href*="https://www.instagram.com/editiq2003"]');
     const twitterLinks = document.querySelectorAll('a[href*="twitter"]');
     const youtubeLinks = document.querySelectorAll('a[href*="youtube"]');
     const linkedinLinks = document.querySelectorAll('a[href*="linkedin"]');
