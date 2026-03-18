@@ -6822,8 +6822,9 @@ select:-webkit-autofill:focus {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(1);
-  transition: filter 0.35s ease, transform 0.35s ease;
+  filter: none;
+  opacity: 1;
+  transition: filter 0.35s ease, transform 0.35s ease, opacity 0.35s ease;
 }
 
 /* ===============================
@@ -6879,7 +6880,8 @@ select:-webkit-autofill:focus {
 }
 
 .portfolio-card:hover .thumb img {
-  filter: brightness(0.85);
+  filter: brightness(0.85) blur(0px);
+  opacity: 1;
   transform: scale(1.04);
 }
 

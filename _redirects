@@ -2,6 +2,7 @@
 /invoice /Invoice.html 200
 /bill /Invoice.html 200
 /shortcuts /shortcuts.html 200
+/editor-dashboard /editor-dashboard.html 200
 
 # Custom 404 page
 /* /404.html 404
